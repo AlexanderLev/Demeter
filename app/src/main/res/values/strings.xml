@@ -10,9 +10,11 @@
     <string name="all_min"> min</string>
     <string name="all_full">full</string>
 
+    <string name="all_water_barrel">Water barrel</string>
+    <string name="all_shower_barrel">Shower barrel</string>
     <string name="all_filling">Filling</string>
-    <string name="all_filling_watering_tank">Filling watering tank</string>
-    <string name="all_filling_washing_tank">Filling washing tank</string>
+    <string name="all_filling_watering_barrel">Filling watering barrel</string>
+    <string name="all_filling_washing_barrel">Filling washing barrel</string>
 
     <string name="all_watering">Watering</string>
     <string name="all_watering_in_process">Watering in process</string>

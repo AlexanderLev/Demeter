@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_medium"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        android:text="@string/all_status"
+        android:textAllCaps="true"
+        android:textColor="@color/colorGrass"
+        android:textSize="@dimen/title_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDateOfStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        android:text="@string/all_date_of_status"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+
+    <ImageView
+        android:id="@+id/ivHumidity"
+        android:layout_width="@dimen/icon_parameter_medium_size"
+        android:layout_height="@dimen/icon_parameter_medium_size"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_big"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateOfStatus"
+        app:srcCompat="@drawable/ic_manometer" />
+
+    <ImageView
+        android:id="@+id/ivTemperature"
+        android:layout_width="@dimen/icon_parameter_medium_size"
+        android:layout_height="@dimen/icon_parameter_medium_size"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
+        app:layout_constraintEnd_toStartOf="@+id/ivHumidity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivHumidity"
+        app:srcCompat="@drawable/ic_termometer" />
+
+    <ImageView
+        android:id="@+id/ivSoil"
+        android:layout_width="@dimen/icon_parameter_medium_size"
+        android:layout_height="@dimen/icon_parameter_medium_size"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivHumidity"
+        app:layout_constraintTop_toTopOf="@+id/ivHumidity"
+        app:srcCompat="@drawable/ic_water_drop" />
+
+    <TextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="24"
+        android:textSize="@dimen/text_size_digital_values_medium"
+        app:layout_constraintEnd_toEndOf="@+id/ivTemperature"
+        app:layout_constraintStart_toStartOf="@+id/ivTemperature"
+        app:layout_constraintTop_toBottomOf="@+id/ivTemperature" />
+
+    <TextView
+        android:id="@+id/tvHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="740 mm"
+        android:textSize="@dimen/text_size_digital_values_medium"
+        app:layout_constraintEnd_toEndOf="@+id/ivHumidity"
+        app:layout_constraintStart_toStartOf="@+id/ivHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/ivHumidity" />
+
+    <TextView
+        android:id="@+id/tvSoil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="87%"
+        android:textSize="@dimen/text_size_digital_values_medium"
+        app:layout_constraintEnd_toEndOf="@+id/ivSoil"
+        app:layout_constraintStart_toStartOf="@+id/ivSoil"
+        app:layout_constraintTop_toBottomOf="@+id/ivSoil" />
+
+    <ImageView
+        android:id="@+id/ivShowerBarrel"
+        android:layout_width="@dimen/icon_parameter_big_size"
+        android:layout_height="@dimen/icon_parameter_big_size"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_big"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        app:layout_constraintEnd_toStartOf="@+id/tvHumidity"
+        app:layout_constraintStart_toEndOf="@+id/tvTemperature"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
+        app:srcCompat="@drawable/ic_shower_barrel_full" />
+
+    <ImageView
+        android:id="@+id/ivWateringBarrel"
+        android:layout_width="@dimen/icon_parameter_big_size"
+        android:layout_height="@dimen/icon_parameter_big_size"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_big"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        app:layout_constraintEnd_toStartOf="@+id/tvSoil"
+        app:layout_constraintStart_toEndOf="@+id/tvHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
+        app:srcCompat="@drawable/ic_watering_barrel_not_full" />
+
+    <TextView
+        android:id="@+id/tvShowerBarrelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_shower_barrel"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="@+id/ivShowerBarrel"
+        app:layout_constraintStart_toStartOf="@+id/ivShowerBarrel"
+        app:layout_constraintTop_toBottomOf="@+id/ivShowerBarrel" />
+
+    <TextView
+        android:id="@+id/tvWateringBarrelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/all_water_barrel"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="@+id/ivWateringBarrel"
+        app:layout_constraintStart_toStartOf="@+id/ivWateringBarrel"
+        app:layout_constraintTop_toBottomOf="@+id/ivWateringBarrel" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_big"
+        android:layout_marginTop="@dimen/margin_all_big"
+        android:text="@string/all_filling_washing_barrel"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvShowerBarrelStatus" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_filling_watering_barrel"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@+id/tvWateringFieldOne"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldOne" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_watering_strawberries"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@+id/tvWateringFieldTwo"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldTwo" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_watering_lawn"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@+id/tvWateringFieldThree"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldThree" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_watering_vegetables"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@+id/tvWateringFieldFour"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldFour" />
+
+    <TextView
+        android:id="@+id/tvWateringFieldSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:text="@string/all_watering_flower_garden"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="@+id/tvWateringFieldFive"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldFive" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldOne"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldOne"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldOne"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldTwo"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldTwo"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldTwo"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldThree"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldThree"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldThree"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldFour"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldFour"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldFour"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldFive"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldFive"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldFive"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <ImageView
+        android:id="@+id/ivWateringFieldSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWateringFieldSix"
+        app:layout_constraintStart_toEndOf="@+id/tvWateringFieldSix"
+        app:layout_constraintTop_toTopOf="@+id/tvWateringFieldSix"
+        app:srcCompat="@drawable/ic_water_drop_blue" />
+
+    <Button
+        android:id="@+id/btGetStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_big"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        android:background="@color/colorGrass"
+        android:text="@string/all_get_status"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldSix" />
+
+    <Button
+        android:id="@+id/btWatering"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_all_small"
+        android:layout_marginTop="@dimen/margin_all_small"
+        android:layout_marginEnd="@dimen/margin_all_small"
+        android:background="@color/colorWater"
+        android:text="@string/all_watering"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btGetStatus" />
+
+</android.support.constraint.ConstraintLayout>

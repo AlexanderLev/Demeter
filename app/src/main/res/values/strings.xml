@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Demeter</string>
+    <string name="all_status">Status</string>
+    <string name="all_get_status">Get status</string>
+    <string name="all_date_of_status">Date of status</string>
+    <string name="all_temperature">Temperature</string>
+    <string name="all_pressure">Pressure</string>
+    <string name="all_soil_moisture">Soil moisture</string>
+    <string name="all_humidity">Humidity</string>
+    <string name="all_min"> min</string>
+    <string name="all_full">full</string>
+
+    <string name="all_filling">Filling</string>
+    <string name="all_filling_watering_tank">Filling watering tank</string>
+    <string name="all_filling_washing_tank">Filling washing tank</string>
+
+    <string name="all_watering">Watering</string>
+    <string name="all_watering_in_process">Watering in process</string>
+    <string name="all_turn_on_watering">Turn on watering</string>
+    <string name="all_turn_off_watering">Turn off watering</string>
+    <string name="all_turn_off_watering_on">Turn off watering on: </string>
+    <string name="all_watering_strawberries">Watering strawberries</string>
+    <string name="all_watering_lawn">Watering lawn</string>
+    <string name="all_watering_vegetables">Watering vegetables</string>
+    <string name="all_watering_flower_garden">Watering flower-garden</string>
+
+    <string name="all_settings">Settings</string>
+    <string name="all_channel_name">Channel name</string>
+    <string name="all_receiving_telephone_number">Receiving telephone number</string>
+    <string name="all_remind_about_watering">Remind about watering</string>
+
+</resources>

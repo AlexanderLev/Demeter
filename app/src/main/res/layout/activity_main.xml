@@ -276,27 +276,27 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_big"
         android:layout_marginEnd="@dimen/margin_all_small"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorGrass"
         android:text="@string/all_get_status"
         android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toTopOf="@+id/btWatering"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWateringFieldSix" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btWatering"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_small"
         android:layout_marginEnd="@dimen/margin_all_small"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorWater"
         android:text="@string/all_watering"
         android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btGetStatus" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

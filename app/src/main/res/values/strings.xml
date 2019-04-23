@@ -27,8 +27,13 @@
     <string name="all_watering_flower_garden">Watering flower-garden</string>
 
     <string name="all_settings">Settings</string>
+    <string name="all_save">Save</string>
+    <string name="all_cancel">Cancel</string>
+    <string name="all_channels_names">Channels names</string>
     <string name="all_channel_name">Channel name</string>
     <string name="all_receiving_telephone_number">Receiving telephone number</string>
+    <string name="all_phone_number_example">+71234567890</string>
     <string name="all_remind_about_watering">Remind about watering</string>
+    <string name="all_enable_remind">Enable remind</string>
 
 </resources>

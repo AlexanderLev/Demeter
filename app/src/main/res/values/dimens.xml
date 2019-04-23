@@ -9,6 +9,7 @@
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_digital_values_medium">24sp</dimen>
     <dimen name="title_size_medium">28sp</dimen>
+    <dimen name="icon_parameter_small_size">48dp</dimen>
     <dimen name="icon_parameter_medium_size">72dp</dimen>
     <dimen name="icon_parameter_big_size">96dp</dimen>
 </resources>

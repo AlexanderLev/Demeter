@@ -36,4 +36,8 @@
     <string name="all_remind_about_watering">Remind about watering</string>
     <string name="all_enable_remind">Enable remind</string>
 
+    <string name="content_description_timer">Timer</string>
+    <string name="content_description_filling_watering_barrel">Filling watering barrel</string>
+    <string name="content_description_filling_shower_barrel">Filling shower barrel</string>
+
 </resources>

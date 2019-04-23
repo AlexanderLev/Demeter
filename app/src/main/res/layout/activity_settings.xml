@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/margin_all_small"
         android:layout_marginEnd="@dimen/margin_all_small"
         android:text="@string/all_channels_names"
-        android:textColor="@color/colorGrass"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/title_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,8 @@
             android:autofillHints="@string/all_channel_name"
             android:ems="10"
             android:hint="@string/all_channel_name"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
         <EditText
             android:id="@+id/etWateringFieldTwo"
@@ -48,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
         <EditText
             android:id="@+id/etWateringFieldThree"
@@ -56,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
         <EditText
             android:id="@+id/etWateringFieldFour"
@@ -64,7 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
         <EditText
             android:id="@+id/etWateringFieldFive"
@@ -72,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
         <EditText
             android:id="@+id/etWateringFieldSix"
@@ -80,7 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textCapSentences" />
+            android:inputType="textCapSentences"
+            android:padding="@dimen/padding_all_medium" />
 
     </LinearLayout>
 
@@ -92,6 +98,7 @@
         android:layout_marginTop="@dimen/margin_all_big"
         android:layout_marginEnd="@dimen/margin_all_small"
         android:text="@string/all_receiving_telephone_number"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/title_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +128,7 @@
         android:layout_marginTop="@dimen/margin_all_big"
         android:layout_marginEnd="@dimen/margin_all_small"
         android:text="@string/all_remind_about_watering"
-        android:textColor="@color/colorWater"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/title_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,20 +139,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_all_small"
+        android:checked="false"
         android:padding="@dimen/padding_all_medium"
         android:text="@string/all_enable_remind"
-        android:textColor="@color/colorWater"
         app:layout_constraintEnd_toEndOf="@+id/tvRemindAboutWatering"
         app:layout_constraintStart_toStartOf="@+id/tvRemindAboutWatering"
         app:layout_constraintTop_toBottomOf="@+id/tvRemindAboutWatering" />
 
     <LinearLayout
         android:id="@+id/llSettingsButtons"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,14 +158,16 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/all_cancel" />
 
         <Button
             android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/all_save" />

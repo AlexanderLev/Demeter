@@ -8,6 +8,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,22 +36,22 @@ public class CommandsActivity extends AppCompatActivity {
     TextView tvWateringFieldSix;
 
     @BindView(R.id.swWateringFieldOne)
-    Switch swWateringFieldOne;
+    SwitchCompat swWateringFieldOne;
 
     @BindView(R.id.swWateringFieldTwo)
-    Switch swWateringFieldTwo;
+    SwitchCompat swWateringFieldTwo;
 
     @BindView(R.id.swWateringFieldThree)
-    Switch swWateringFieldThree;
+    SwitchCompat swWateringFieldThree;
 
     @BindView(R.id.swWateringFieldFour)
-    Switch swWateringFieldFour;
+    SwitchCompat swWateringFieldFour;
 
     @BindView(R.id.swWateringFieldFive)
-    Switch swWateringFieldFive;
+    SwitchCompat swWateringFieldFive;
 
     @BindView(R.id.swWateringFieldSix)
-    Switch swWateringFieldSix;
+    SwitchCompat swWateringFieldSix;
 
     @BindView(R.id.ibWateringFieldOne)
     ImageButton ibWateringFieldOne;
@@ -77,10 +78,10 @@ public class CommandsActivity extends AppCompatActivity {
     ImageView ivFillingWateringBarrel;
 
     @BindView(R.id.swFillingShowerBarrel)
-    Switch swFillingShowerBarrel;
+    SwitchCompat swFillingShowerBarrel;
 
     @BindView(R.id.swFillingWateringBarrel)
-    Switch swFillingWateringBarrel;
+    SwitchCompat swFillingWateringBarrel;
 
     @BindView(R.id.btStopAllWatering)
     Button btStopAllWatering;

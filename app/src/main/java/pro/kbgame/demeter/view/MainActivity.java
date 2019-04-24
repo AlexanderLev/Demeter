@@ -69,19 +69,19 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivWateringFieldOne;
 
     @BindView(R.id.ivWateringFieldTwo)
-    TextView ivWateringFieldTwo;
+    ImageView ivWateringFieldTwo;
 
     @BindView(R.id.ivWateringFieldThree)
-    TextView ivWateringFieldThree;
+    ImageView ivWateringFieldThree;
 
     @BindView(R.id.ivWateringFieldFour)
-    TextView ivWateringFieldFour;
+    ImageView ivWateringFieldFour;
 
     @BindView(R.id.ivWateringFieldFive)
-    TextView ivWateringFieldFive;
+    ImageView ivWateringFieldFive;
 
     @BindView(R.id.ivWateringFieldSix)
-    TextView ivWateringFieldSix;
+    ImageView ivWateringFieldSix;
 
     @BindView(R.id.btGetStatus)
     Button btGetStatus;

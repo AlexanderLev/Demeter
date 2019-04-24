@@ -1,320 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvTitleWatering"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_medium"
-        android:layout_marginEnd="@dimen/margin_all_small"
-        android:text="@string/all_watering"
-        android:textColor="@color/colorWater"
-        android:textSize="@dimen/title_size_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/llWateringFields"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_all_medium"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleWatering">
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/tvTitleWatering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_medium"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:text="@string/all_watering"
+            android:textColor="@color/colorWater"
+            android:textSize="@dimen/title_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/llWateringFieldOne"
+            android:id="@+id/llWateringFields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/margin_all_medium"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleWatering">
 
-            <TextView
-                android:id="@+id/tvWateringFieldOne"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llWateringFieldOne"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <Switch
-                android:id="@+id/swWateringFieldOne"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding_all_medium" />
+                <TextView
+                    android:id="@+id/tvWateringFieldOne"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
 
-            <ImageButton
-                android:id="@+id/ibWateringFieldOne"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWateringFieldTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWateringFieldTwo"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWateringFieldThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWateringFieldThree"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWateringFieldFour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWateringFieldFour"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWateringFieldFive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWateringFieldFive"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldFive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldFive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWateringFieldSix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWateringFieldSix"
+                    style="@style/tvChannelField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swWateringFieldSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_all_medium" />
+
+                <ImageButton
+                    android:id="@+id/ibWateringFieldSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_description_timer"
+                    app:srcCompat="@drawable/selector_timer_watering" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llWateringFieldTwo"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvTitleBarrelsFilling"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_medium"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:text="@string/all_filling"
+            android:textColor="@color/colorWater"
+            android:textSize="@dimen/title_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llWateringFields" />
 
-            <TextView
-                android:id="@+id/tvWateringFieldTwo"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
+        <ImageView
+            android:id="@+id/ivFillingShowerBarrel"
+            android:layout_width="@dimen/icon_parameter_medium_size"
+            android:layout_height="@dimen/icon_parameter_medium_size"
+            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_small"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:contentDescription="@string/content_description_filling_shower_barrel"
+            app:layout_constraintEnd_toStartOf="@+id/tvTitleBarrelsFilling"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleBarrelsFilling"
+            app:srcCompat="@drawable/selector_shower_barrel_fill" />
 
-            <Switch
-                android:id="@+id/swWateringFieldTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding_all_medium" />
+        <ImageView
+            android:id="@+id/ivFillingWateringBarrel"
+            android:layout_width="@dimen/icon_parameter_medium_size"
+            android:layout_height="@dimen/icon_parameter_medium_size"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/margin_all_small"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:contentDescription="@string/content_description_filling_watering_barrel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTitleBarrelsFilling"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleBarrelsFilling"
+            app:srcCompat="@drawable/selector_watering_barrel_fill" />
 
-            <ImageButton
-                android:id="@+id/ibWateringFieldTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llWateringFieldThree"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swFillingShowerBarrel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/margin_all_small"
+            android:padding="@dimen/padding_all_medium"
+            app:layout_constraintEnd_toEndOf="@+id/ivFillingShowerBarrel"
+            app:layout_constraintStart_toStartOf="@+id/ivFillingShowerBarrel"
+            app:layout_constraintTop_toBottomOf="@+id/ivFillingShowerBarrel" />
 
-            <TextView
-                android:id="@+id/tvWateringFieldThree"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
-
-            <Switch
-                android:id="@+id/swWateringFieldThree"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:checked="false"
-                android:padding="@dimen/padding_all_medium" />
-
-            <ImageButton
-                android:id="@+id/ibWateringFieldThree"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llWateringFieldFour"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swFillingWateringBarrel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvWateringFieldFour"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
-
-            <Switch
-                android:id="@+id/swWateringFieldFour"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding_all_medium" />
-
-            <ImageButton
-                android:id="@+id/ibWateringFieldFour"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llWateringFieldFive"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvWateringFieldFive"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
-
-            <Switch
-                android:id="@+id/swWateringFieldFive"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding_all_medium" />
-
-            <ImageButton
-                android:id="@+id/ibWateringFieldFive"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llWateringFieldSix"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvWateringFieldSix"
-                style="@style/tvChannelField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
-
-            <Switch
-                android:id="@+id/swWateringFieldSix"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding_all_medium" />
-
-            <ImageButton
-                android:id="@+id/ibWateringFieldSix"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/content_description_timer"
-                app:srcCompat="@drawable/selector_timer_watering" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvTitleBarrelsFilling"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_medium"
-        android:layout_marginEnd="@dimen/margin_all_small"
-        android:text="@string/all_filling"
-        android:textColor="@color/colorWater"
-        android:textSize="@dimen/title_size_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llWateringFields" />
-
-    <ImageView
-        android:id="@+id/ivFillingShowerBarrel"
-        android:layout_width="@dimen/icon_parameter_medium_size"
-        android:layout_height="@dimen/icon_parameter_medium_size"
-        android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_small"
-        android:layout_marginEnd="@dimen/margin_all_small"
-        android:contentDescription="@string/content_description_filling_shower_barrel"
-        app:layout_constraintEnd_toStartOf="@+id/tvTitleBarrelsFilling"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleBarrelsFilling"
-        app:srcCompat="@drawable/selector_shower_barrel_fill" />
-
-    <ImageView
-        android:id="@+id/ivFillingWateringBarrel"
-        android:layout_width="@dimen/icon_parameter_medium_size"
-        android:layout_height="@dimen/icon_parameter_medium_size"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/content_description_filling_watering_barrel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvTitleBarrelsFilling"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleBarrelsFilling"
-        app:srcCompat="@drawable/selector_watering_barrel_fill" />
-
-    <Switch
-        android:id="@+id/swFillingShowerBarrel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_all_small"
-        android:padding="@dimen/padding_all_medium"
-        app:layout_constraintEnd_toEndOf="@+id/ivFillingShowerBarrel"
-        app:layout_constraintStart_toStartOf="@+id/ivFillingShowerBarrel"
-        app:layout_constraintTop_toBottomOf="@+id/ivFillingShowerBarrel" />
-
-    <Switch
-        android:id="@+id/swFillingWateringBarrel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_all_small"
-        android:padding="@dimen/padding_all_medium"
-        app:layout_constraintEnd_toEndOf="@+id/ivFillingWateringBarrel"
-        app:layout_constraintStart_toStartOf="@+id/ivFillingWateringBarrel"
-        app:layout_constraintTop_toBottomOf="@+id/ivFillingWateringBarrel" />
-
-    <Button
-        android:id="@+id/btStopAllWatering"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_all_small"
-        android:layout_marginTop="@dimen/margin_all_medium"
-        android:layout_marginEnd="@dimen/margin_all_small"
-        android:background="@color/colorAccent"
-        android:text="@string/all_turn_off_watering"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swFillingShowerBarrel" />
-
-    <LinearLayout
-        android:id="@+id/llWateringButtons"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+            android:layout_marginTop="@dimen/margin_all_small"
+            android:padding="@dimen/padding_all_medium"
+            app:layout_constraintEnd_toEndOf="@+id/ivFillingWateringBarrel"
+            app:layout_constraintStart_toStartOf="@+id/ivFillingWateringBarrel"
+            app:layout_constraintTop_toBottomOf="@+id/ivFillingWateringBarrel" />
 
         <Button
-            android:id="@+id/btCancel"
+            android:id="@+id/btStopAllWatering"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_medium"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:background="@color/colorAccent"
+            android:text="@string/all_turn_off_watering"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swFillingShowerBarrel" />
+
+        <LinearLayout
+            android:id="@+id/llWateringButtons"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/all_cancel" />
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_all_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btStopAllWatering">
 
-        <Button
-            android:id="@+id/btSave"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/all_save" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btCancel"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/all_cancel" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btSave"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/all_save" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

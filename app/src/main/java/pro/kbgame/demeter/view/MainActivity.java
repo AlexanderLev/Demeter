@@ -1,8 +1,10 @@
 package pro.kbgame.demeter.view;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.tvStatus)
     TextView tvStatus;
+
+    @BindView(R.id.ibSettings)
+    ImageButton ibSettings;
 
     @BindView(R.id.tvDateOfStatus)
     TextView tvDateOfStatus;
@@ -85,15 +90,24 @@ public class MainActivity extends AppCompatActivity {
     Button btWatering;
 
     @SuppressWarnings("unused")
+    @OnClick(R.id.ibSettings)
+    public void ibSettingsClick() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    @SuppressWarnings("unused")
     @OnClick(R.id.btGetStatus)
     public void btGetStatusClick() {
-        finish();
     }
 
     @SuppressWarnings("unused")
     @OnClick(R.id.btWatering)
     public void btWateringClick() {
+        Intent intent = new Intent(this, CommandsActivity.class);
+        startActivity(intent);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

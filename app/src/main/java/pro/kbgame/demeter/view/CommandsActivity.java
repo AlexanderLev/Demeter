@@ -165,6 +165,7 @@ public class CommandsActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btStopAllWatering)
     public void btStopAllWateringClick() {
+        setAllSwitchesDisabled();
     }
 
     @SuppressWarnings("unused")
@@ -223,6 +224,17 @@ public class CommandsActivity extends AppCompatActivity {
         ibWateringFieldSix.setEnabled(state);
     }
 
+    private void setAllSwitchesDisabled(){
+        swWateringFieldOne.setChecked(false);
+        swWateringFieldTwo.setChecked(false);
+        swWateringFieldThree.setChecked(false);
+        swWateringFieldFour.setChecked(false);
+        swWateringFieldFive.setChecked(false);
+        swWateringFieldSix.setChecked(false);
+        swFillingShowerBarrel.setChecked(false);
+        swFillingWateringBarrel.setChecked(false);
+    }
+
     private void setSwitchesListeners(){
         swWateringFieldOne.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -258,6 +270,20 @@ public class CommandsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ibWateringFieldSix.setEnabled(isChecked);
+            }
+        });
+
+        swFillingShowerBarrel.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+
+        swFillingWateringBarrel.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
             }
         });
 

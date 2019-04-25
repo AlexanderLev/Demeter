@@ -15,6 +15,7 @@
     <string name="all_filling">Filling</string>
     <string name="all_filling_watering_barrel">Filling watering barrel</string>
     <string name="all_filling_washing_barrel">Filling washing barrel</string>
+    <string name="all_turn_off_filling">Turn off filling</string>
 
     <string name="all_watering">Watering</string>
     <string name="all_setup_time_in_min">Setup time in min</string>

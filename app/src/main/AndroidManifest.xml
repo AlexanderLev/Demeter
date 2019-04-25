@@ -26,10 +26,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
-            android:name=".view.CommandsActivity"
+            android:name=".view.TurnOnWateringActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-
+        <activity android:name=".view.TurnOffWateringActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 

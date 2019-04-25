@@ -86,8 +86,11 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btGetStatus)
     Button btGetStatus;
 
-    @BindView(R.id.btWatering)
-    Button btWatering;
+    @BindView(R.id.btTurnOnWatering)
+    Button btTurnOnWatering;
+
+    @BindView(R.id.btTurnOffWatering)
+    Button btTurnOffWatering;
 
     @SuppressWarnings("unused")
     @OnClick(R.id.ibSettings)
@@ -102,9 +105,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    @OnClick(R.id.btWatering)
-    public void btWateringClick() {
-        Intent intent = new Intent(this, CommandsActivity.class);
+    @OnClick(R.id.btTurnOnWatering)
+    public void btTurnOnWateringClick() {
+        Intent intent = new Intent(this, TurnOnWateringActivity.class);
+        startActivity(intent);
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.btTurnOffWatering)
+    public void btTurnOffWateringClick() {
+        Intent intent = new Intent(this, TurnOffWateringActivity.class);
         startActivity(intent);
     }
 
@@ -115,6 +125,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        initUi();
+
     }
+
+    private void initUi(){}
+
+
 
 }

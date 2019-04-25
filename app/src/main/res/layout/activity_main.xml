@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clMain"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,8 +53,8 @@
 
         <ImageView
             android:id="@+id/ivHumidity"
-            android:layout_width="@dimen/icon_parameter_medium_size"
-            android:layout_height="@dimen/icon_parameter_medium_size"
+            android:layout_width="@dimen/icon_parameter_small_size"
+            android:layout_height="@dimen/icon_parameter_small_size"
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginTop="@dimen/margin_all_big"
             android:layout_marginEnd="@dimen/margin_all_small"
@@ -63,8 +65,8 @@
 
         <ImageView
             android:id="@+id/ivTemperature"
-            android:layout_width="@dimen/icon_parameter_medium_size"
-            android:layout_height="@dimen/icon_parameter_medium_size"
+            android:layout_width="@dimen/icon_parameter_small_size"
+            android:layout_height="@dimen/icon_parameter_small_size"
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginEnd="@dimen/margin_all_small"
             app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
@@ -75,8 +77,8 @@
 
         <ImageView
             android:id="@+id/ivSoil"
-            android:layout_width="@dimen/icon_parameter_medium_size"
-            android:layout_height="@dimen/icon_parameter_medium_size"
+            android:layout_width="@dimen/icon_parameter_small_size"
+            android:layout_height="@dimen/icon_parameter_small_size"
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginEnd="@dimen/margin_all_small"
             app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
@@ -120,8 +122,8 @@
 
         <ImageView
             android:id="@+id/ivShowerBarrel"
-            android:layout_width="@dimen/icon_parameter_big_size"
-            android:layout_height="@dimen/icon_parameter_big_size"
+            android:layout_width="@dimen/icon_parameter_small_size"
+            android:layout_height="@dimen/icon_parameter_small_size"
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginTop="@dimen/margin_all_big"
             android:layout_marginEnd="@dimen/margin_all_small"
@@ -132,8 +134,8 @@
 
         <ImageView
             android:id="@+id/ivWateringBarrel"
-            android:layout_width="@dimen/icon_parameter_big_size"
-            android:layout_height="@dimen/icon_parameter_big_size"
+            android:layout_width="@dimen/icon_parameter_small_size"
+            android:layout_height="@dimen/icon_parameter_small_size"
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginTop="@dimen/margin_all_big"
             android:layout_marginEnd="@dimen/margin_all_small"
@@ -301,33 +303,46 @@
             android:id="@+id/btGetStatus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_all_big"
             android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_big"
             android:layout_marginEnd="@dimen/margin_all_small"
             android:layout_marginBottom="@dimen/margin_all_small"
             android:background="@color/colorPrimary"
             android:text="@string/all_get_status"
             android:textSize="@dimen/text_size_medium"
-            app:layout_constraintTop_toBottomOf="@id/tvWateringFieldSix"
-            app:layout_constraintBottom_toTopOf="@+id/btWatering"
+            app:layout_constraintBottom_toTopOf="@+id/btTurnOnWatering"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWateringFieldSix" />
 
         <Button
-            android:id="@+id/btWatering"
+            android:id="@+id/btTurnOnWatering"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_small"
             android:layout_marginEnd="@dimen/margin_all_small"
-            android:layout_marginTop="@dimen/margin_all_medium"
-            android:layout_marginBottom="@dimen/margin_all_small"
             android:background="@color/colorPrimary"
-            android:text="@string/all_watering"
+            android:text="@string/all_turn_on_watering"
             android:textSize="@dimen/text_size_medium"
-            app:layout_constraintTop_toBottomOf="@id/btGetStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btGetStatus" />
+
+        <Button
+            android:id="@+id/btTurnOffWatering"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginTop="@dimen/margin_all_small"
+            android:layout_marginEnd="@dimen/margin_all_small"
+            android:background="@color/colorPrimary"
+            android:text="@string/all_turn_off_watering"
+            android:textSize="@dimen/text_size_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btTurnOnWatering" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 
-public class CommandsActivity extends AppCompatActivity {
+public class TurnOnWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.tvWateringFieldOne)
     TextView tvWateringFieldOne;
@@ -85,9 +85,6 @@ public class CommandsActivity extends AppCompatActivity {
 
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
-
-    @BindView(R.id.btStopAllWatering)
-    Button btStopAllWatering;
 
     @BindView(R.id.btCancel)
     Button btCancel;
@@ -163,12 +160,6 @@ public class CommandsActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    @OnClick(R.id.btStopAllWatering)
-    public void btStopAllWateringClick() {
-        setAllSwitchesDisabled();
-    }
-
-    @SuppressWarnings("unused")
     @OnClick(R.id.btCancel)
     public void btCancelClick() {
         finish();
@@ -182,9 +173,9 @@ public class CommandsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commands);
+        setContentView(R.layout.activity_turn_on_watering);
         ButterKnife.bind(this);
-        initUI();
+        initUi();
     }
 
     private void setTimer(SetWateringTime setWateringTime){
@@ -209,7 +200,7 @@ public class CommandsActivity extends AppCompatActivity {
         void timeInMin(int time);
     }
 
-    private void initUI(){
+    private void initUi(){
         allTimersEnabled(false);
         setSwitchesListeners();
 
@@ -222,17 +213,6 @@ public class CommandsActivity extends AppCompatActivity {
         ibWateringFieldFour.setEnabled(state);
         ibWateringFieldFive.setEnabled(state);
         ibWateringFieldSix.setEnabled(state);
-    }
-
-    private void setAllSwitchesDisabled(){
-        swWateringFieldOne.setChecked(false);
-        swWateringFieldTwo.setChecked(false);
-        swWateringFieldThree.setChecked(false);
-        swWateringFieldFour.setChecked(false);
-        swWateringFieldFive.setChecked(false);
-        swWateringFieldSix.setChecked(false);
-        swFillingShowerBarrel.setChecked(false);
-        swFillingWateringBarrel.setChecked(false);
     }
 
     private void setSwitchesListeners(){

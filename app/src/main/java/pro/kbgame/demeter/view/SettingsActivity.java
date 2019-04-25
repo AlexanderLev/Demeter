@@ -61,8 +61,9 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
+        initUi();
     }
 
-
+    private void initUi(){}
 
 }

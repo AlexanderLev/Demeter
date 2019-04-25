@@ -16,7 +16,7 @@
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginTop="@dimen/margin_all_medium"
             android:layout_marginEnd="@dimen/margin_all_small"
-            android:text="@string/all_watering"
+            android:text="@string/all_turn_off_watering"
             android:textColor="@color/colorWater"
             android:textSize="@dimen/title_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,16 +51,8 @@
                     android:id="@+id/swWateringFieldOne"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldOne"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -82,16 +74,8 @@
                     android:id="@+id/swWateringFieldTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -114,16 +98,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:checked="false"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldThree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -145,16 +121,8 @@
                     android:id="@+id/swWateringFieldFour"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldFour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -176,16 +144,8 @@
                     android:id="@+id/swWateringFieldFive"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldFive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -207,16 +167,8 @@
                     android:id="@+id/swWateringFieldSix"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/padding_all_medium" />
-
-                <ImageButton
-                    android:id="@+id/ibWateringFieldSix"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/content_description_timer"
-                    app:srcCompat="@drawable/selector_timer_watering" />
+                    android:padding="@dimen/padding_all_medium"
+                    android:paddingEnd="@dimen/padding_all_big" />
 
             </LinearLayout>
 
@@ -229,7 +181,7 @@
             android:layout_marginStart="@dimen/margin_all_small"
             android:layout_marginTop="@dimen/margin_all_medium"
             android:layout_marginEnd="@dimen/margin_all_small"
-            android:text="@string/all_filling"
+            android:text="@string/all_turn_off_filling"
             android:textColor="@color/colorWater"
             android:textSize="@dimen/title_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -240,11 +192,9 @@
             android:id="@+id/ivFillingShowerBarrel"
             android:layout_width="@dimen/icon_parameter_medium_size"
             android:layout_height="@dimen/icon_parameter_medium_size"
-            android:layout_marginStart="@dimen/margin_all_small"
+            android:layout_marginStart="@dimen/margin_all_big"
             android:layout_marginTop="@dimen/margin_all_small"
-            android:layout_marginEnd="@dimen/margin_all_small"
             android:contentDescription="@string/content_description_filling_shower_barrel"
-            app:layout_constraintEnd_toStartOf="@+id/tvTitleBarrelsFilling"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleBarrelsFilling"
             app:srcCompat="@drawable/selector_shower_barrel_fill" />
@@ -253,9 +203,8 @@
             android:id="@+id/ivFillingWateringBarrel"
             android:layout_width="@dimen/icon_parameter_medium_size"
             android:layout_height="@dimen/icon_parameter_medium_size"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/margin_all_small"
-            android:layout_marginEnd="@dimen/margin_all_small"
+            android:layout_marginEnd="@dimen/margin_all_big"
             android:contentDescription="@string/content_description_filling_watering_barrel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvTitleBarrelsFilling"
@@ -282,30 +231,17 @@
             app:layout_constraintStart_toStartOf="@+id/ivFillingWateringBarrel"
             app:layout_constraintTop_toBottomOf="@+id/ivFillingWateringBarrel" />
 
-        <Button
-            android:id="@+id/btStopAllWatering"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_all_small"
-            android:layout_marginTop="@dimen/margin_all_medium"
-            android:layout_marginEnd="@dimen/margin_all_small"
-            android:background="@color/colorAccent"
-            android:text="@string/all_turn_off_watering"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swFillingShowerBarrel" />
-
         <LinearLayout
             android:id="@+id/llWateringButtons"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/margin_all_medium"
+            android:layout_marginTop="@dimen/margin_all_big"
+            app:layout_constraintTop_toBottomOf="@id/swFillingShowerBarrel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btStopAllWatering">
+            app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:id="@+id/btCancel"

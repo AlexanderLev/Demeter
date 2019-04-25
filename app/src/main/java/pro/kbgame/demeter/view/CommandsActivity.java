@@ -1,12 +1,14 @@
 package pro.kbgame.demeter.view;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
@@ -93,6 +95,73 @@ public class CommandsActivity extends AppCompatActivity {
     Button btSave;
 
     @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldOne)
+    public void ibWateringFieldOneClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldTwo)
+    public void ibWateringFieldTwoClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldThree)
+    public void ibWateringFieldThreeClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldFour)
+    public void ibWateringFieldFourClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldFive)
+    public void ibWateringFieldFiveClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+    }
+
+    @SuppressWarnings("unused")
+    @OnClick(R.id.ibWateringFieldSix)
+    public void ibWateringFieldSixClick() {
+        setTimer(new SetWateringTime() {
+            @Override
+            public void timeInMin(int time) {
+
+            }
+        });
+    }
+
+    @SuppressWarnings("unused")
     @OnClick(R.id.btStopAllWatering)
     public void btStopAllWateringClick() {
     }
@@ -113,7 +182,29 @@ public class CommandsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commands);
         ButterKnife.bind(this);
-
     }
+
+    private void setTimer(SetWateringTime setWateringTime){
+        final NumberPicker view = new NumberPicker(this);
+        view.setMinValue(0);
+        view.setMaxValue(99);
+        view.setWrapSelectorWheel(false);
+        new AlertDialog.Builder(this).setView(view).setTitle(R.string.all_setup_time_in_min).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                setWateringTime.timeInMin(view.getValue());
+            }
+        }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).show();
+    }
+
+    interface SetWateringTime{
+        void timeInMin(int time);
+    }
+
 
 }

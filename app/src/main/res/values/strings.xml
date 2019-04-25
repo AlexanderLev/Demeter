@@ -17,6 +17,7 @@
     <string name="all_filling_washing_barrel">Filling washing barrel</string>
 
     <string name="all_watering">Watering</string>
+    <string name="all_setup_time_in_min">Setup time in min</string>
     <string name="all_watering_in_process">Watering in process</string>
     <string name="all_turn_on_watering">Turn on watering</string>
     <string name="all_turn_off_watering">Turn off watering</string>

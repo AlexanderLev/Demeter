@@ -57,6 +57,12 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     SwitchCompat swFillingWateringBarrel;
 
     @SuppressWarnings("unused")
+    @OnClick(R.id.btTurnOffWateringAll)
+    public void btTurnOffWateringAllClick() {
+        checkAllSwitches(true);
+    }
+
+    @SuppressWarnings("unused")
     @OnClick(R.id.btCancel)
     public void btCancelClick() {
         finish();
@@ -125,5 +131,16 @@ public class TurnOffWateringActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void checkAllSwitches(boolean state){
+        swWateringFieldOne.setChecked(state);
+        swWateringFieldTwo.setChecked(state);
+        swWateringFieldThree.setChecked(state);
+        swWateringFieldFour.setChecked(state);
+        swWateringFieldFive.setChecked(state);
+        swWateringFieldSix.setChecked(state);
+        swFillingShowerBarrel.setChecked(state);
+        swFillingWateringBarrel.setChecked(state);
     }
 }

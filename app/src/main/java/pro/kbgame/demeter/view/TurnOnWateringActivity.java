@@ -2,7 +2,6 @@ package pro.kbgame.demeter.view;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -85,12 +84,6 @@ public class TurnOnWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
-
-    @BindView(R.id.btCancel)
-    Button btCancel;
-
-    @BindView(R.id.btSave)
-    Button btSave;
 
     @SuppressWarnings("unused")
     @OnClick(R.id.ibWateringFieldOne)

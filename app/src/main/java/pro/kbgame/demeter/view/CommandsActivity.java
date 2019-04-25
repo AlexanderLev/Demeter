@@ -3,6 +3,7 @@ package pro.kbgame.demeter.view;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -182,6 +183,7 @@ public class CommandsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commands);
         ButterKnife.bind(this);
+        initUI();
     }
 
     private void setTimer(SetWateringTime setWateringTime){
@@ -204,6 +206,61 @@ public class CommandsActivity extends AppCompatActivity {
 
     interface SetWateringTime{
         void timeInMin(int time);
+    }
+
+    private void initUI(){
+        allTimersEnabled(false);
+        setSwitchesListeners();
+
+    }
+
+    private void allTimersEnabled(boolean state){
+        ibWateringFieldOne.setEnabled(state);
+        ibWateringFieldTwo.setEnabled(state);
+        ibWateringFieldThree.setEnabled(state);
+        ibWateringFieldFour.setEnabled(state);
+        ibWateringFieldFive.setEnabled(state);
+        ibWateringFieldSix.setEnabled(state);
+    }
+
+    private void setSwitchesListeners(){
+        swWateringFieldOne.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldOne.setEnabled(isChecked);
+            }
+        });
+        swWateringFieldTwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldTwo.setEnabled(isChecked);
+            }
+        });
+        swWateringFieldThree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldThree.setEnabled(isChecked);
+            }
+        });
+        swWateringFieldFour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldFour.setEnabled(isChecked);
+            }
+        });
+        swWateringFieldFive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldFive.setEnabled(isChecked);
+            }
+        });
+        swWateringFieldSix.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ibWateringFieldSix.setEnabled(isChecked);
+            }
+        });
+
     }
 
 

@@ -11,11 +11,11 @@ public class MockStatus implements MainActivity.StatusCallBack {
         this.statusCallBack = statusCallBack;
     }
 
-    public void makeMockStatus(){
+    private void makeMockStatus(){
         status = new Status(24, 740, 35);
     }
 
-    public Status getStatus(){
+    private Status getStatus(){
         if (status == null){
             makeMockStatus();
         }

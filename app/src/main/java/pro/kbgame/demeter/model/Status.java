@@ -66,4 +66,5 @@ public class Status {
     public void setWaterReceiverList(List<WaterReceiver> waterReceiverList) {
         this.waterReceiverList = waterReceiverList;
     }
+
 }

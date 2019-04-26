@@ -1,6 +1,5 @@
 package pro.kbgame.demeter.view;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -95,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btTurnOffWatering)
     Button btTurnOffWatering;
 
+    StatusCallBack statusCallBack;
+
     @SuppressWarnings("unused")
     @OnClick(R.id.ibSettings)
     public void ibSettingsClick() {
@@ -134,7 +135,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUi(){
         hideAllDrops();
-        Status status = new MockStatus().getStatus();
+        statusCallBack = new MockStatus(statusCallBack);
+        Status status = statusCallBack.statusCallBack();
         tvTemperature.setText(String.valueOf(status.getTemp()));
         tvHumidity.setText(String.valueOf(status.getHumidity()));
         tvSoil.setText(String.valueOf(status.getSoil()));
@@ -148,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
         ivWateringFieldFour.setVisibility(View.INVISIBLE);
         ivWateringFieldFive.setVisibility(View.INVISIBLE);
         ivWateringFieldSix.setVisibility(View.INVISIBLE);
+    }
+
+    public interface StatusCallBack {
+        Status statusCallBack();
     }
 
 }

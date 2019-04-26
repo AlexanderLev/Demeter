@@ -3,6 +3,7 @@ package pro.kbgame.demeter.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,6 +15,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
+import pro.kbgame.demeter.model.Status;
+import pro.kbgame.demeter.repository.MockStatus;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -129,8 +132,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initUi(){}
+    private void initUi(){
+        hideAllDrops();
+        Status status = new MockStatus().getStatus();
+        tvTemperature.setText(String.valueOf(status.getTemp()));
+        tvHumidity.setText(String.valueOf(status.getHumidity()));
+        tvSoil.setText(String.valueOf(status.getSoil()));
 
+    }
 
+    private void hideAllDrops(){
+        ivWateringFieldOne.setVisibility(View.INVISIBLE);
+        ivWateringFieldTwo.setVisibility(View.INVISIBLE);
+        ivWateringFieldThree.setVisibility(View.INVISIBLE);
+        ivWateringFieldFour.setVisibility(View.INVISIBLE);
+        ivWateringFieldFive.setVisibility(View.INVISIBLE);
+        ivWateringFieldSix.setVisibility(View.INVISIBLE);
+    }
 
 }

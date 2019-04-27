@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_all_small"
-            android:text="24"
+            android:text="@string/all_test_three_dight_value"
             android:textSize="@dimen/text_size_digital_values_medium"
             app:layout_constraintEnd_toEndOf="@+id/ivTemperature"
             app:layout_constraintStart_toStartOf="@+id/ivTemperature"
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_all_small"
-            android:text="740 mm"
+            android:text="@string/all_test_three_dight_value"
             android:textSize="@dimen/text_size_digital_values_medium"
             app:layout_constraintEnd_toEndOf="@+id/ivHumidity"
             app:layout_constraintStart_toStartOf="@+id/ivHumidity"
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_all_small"
-            android:text="87%"
+            android:text="@string/all_test_three_dight_value"
             android:textSize="@dimen/text_size_digital_values_medium"
             app:layout_constraintEnd_toEndOf="@+id/ivSoil"
             app:layout_constraintStart_toStartOf="@+id/ivSoil"
@@ -130,7 +130,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tvHumidity"
             app:layout_constraintStart_toEndOf="@+id/tvTemperature"
             app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
-            app:srcCompat="@drawable/ic_shower_barrel_full" />
+            app:srcCompat="@drawable/ic_shower_barrel_empty" />
 
         <ImageView
             android:id="@+id/ivWateringBarrel"
@@ -142,7 +142,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tvSoil"
             app:layout_constraintStart_toEndOf="@+id/tvHumidity"
             app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
-            app:srcCompat="@drawable/ic_watering_barrel_not_full" />
+            app:srcCompat="@drawable/ic_watering_barrel_empty" />
 
         <TextView
             android:id="@+id/tvShowerBarrelStatus"

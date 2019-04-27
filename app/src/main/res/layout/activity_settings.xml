@@ -118,6 +118,7 @@
         android:ems="10"
         android:hint="@string/all_phone_number_example"
         android:inputType="phone"
+        android:longClickable="false"
         android:padding="@dimen/padding_all_small"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"

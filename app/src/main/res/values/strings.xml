@@ -31,6 +31,7 @@
 
     <string name="all_settings">Settings</string>
     <string name="all_save">Save</string>
+    <string name="all_saved">Saved</string>
     <string name="all_cancel">Cancel</string>
     <string name="all_channels_names">Channels names</string>
     <string name="all_channel_name">Channel name</string>

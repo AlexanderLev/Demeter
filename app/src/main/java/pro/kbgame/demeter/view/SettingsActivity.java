@@ -1,9 +1,11 @@
 package pro.kbgame.demeter.view;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +13,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
+import pro.kbgame.demeter.model.Settings;
+import pro.kbgame.demeter.repository.PreferencesKeeper;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -53,6 +57,9 @@ public class SettingsActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
+        PreferencesKeeper.getInstance().saveToPrefs(this, collectDataToSave());
+        Toast.makeText(this, R.string.all_saved, Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
@@ -64,6 +71,37 @@ public class SettingsActivity extends AppCompatActivity {
         initUi();
     }
 
-    private void initUi(){}
+    private void initUi(){
+        displayData(loadSettingsData());
+    }
+
+    private Settings collectDataToSave(){
+        Settings settings = new Settings();
+        settings.setFieldNameOne(etWateringFieldOne.getText().toString());
+        settings.setFieldNameTwo(etWateringFieldTwo.getText().toString());
+        settings.setFieldNameThree(etWateringFieldThree.getText().toString());
+        settings.setFieldNameFour(etWateringFieldFour.getText().toString());
+        settings.setFieldNameFive(etWateringFieldFive.getText().toString());
+        settings.setFieldNameSix(etWateringFieldSix.getText().toString());
+        settings.setReceivingPhoneNumber(String.valueOf(etReceivingPhoneNumber.getText()));
+        settings.setRemindAboutWatering(cbRemindAboutWatering.isChecked());
+        return settings;
+    };
+
+    private Settings loadSettingsData(){
+        return PreferencesKeeper.getInstance().loadFromPrefs(this);
+
+    }
+
+    private void displayData(Settings settings){
+        etWateringFieldOne.setText(settings.getFieldNameOne());
+        etWateringFieldTwo.setText(settings.getFieldNameTwo());
+        etWateringFieldThree.setText(settings.getFieldNameThree());
+        etWateringFieldFour.setText(settings.getFieldNameFour());
+        etWateringFieldFive.setText(settings.getFieldNameFive());
+        etWateringFieldSix.setText(settings.getFieldNameSix());
+        etReceivingPhoneNumber.setText(settings.getReceivingPhoneNumber());
+        cbRemindAboutWatering.setChecked(settings.isRemindAboutWatering());
+    }
 
 }

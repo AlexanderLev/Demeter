@@ -14,6 +14,7 @@ import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.model.Settings;
 import pro.kbgame.demeter.repository.PreferencesKeeper;
+import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class SettingsActivity extends AppCompatActivity {
 

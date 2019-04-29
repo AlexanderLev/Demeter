@@ -133,12 +133,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onResume(){
+        super.onResume();
+        initUi();
+    }
 
 
     private void initUi(){
         hideAllDrops();
-        StatusKeeper statusKeeper = StatusKeeper.getInstance(this); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
+        StatusKeeper statusKeeper = StatusKeeper.getInstance(this);
         registerCallBack(statusKeeper);
         Status status = statusCallBack.statusCallBack();
         tvTemperature.setText(String.valueOf(status.getTemp()));

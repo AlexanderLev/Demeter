@@ -11,7 +11,7 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
 
     private static StatusKeeper instance;
     Context context;
-    private Status status;
+    private Status currentStatus;
 
     public static StatusKeeper getInstance(Context context) {
         if(instance == null){
@@ -31,17 +31,24 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
     }
 
     public Status getCurrentStatus(){
-        if (status != null){
-            return status;
+        if (currentStatus != null){
+            updateCurrentStatus();
         }
-        else {status = new MockStatus().getStatus();}
-        return status;
+        else {
+            currentStatus = new MockStatus().getStatus();}
+        return currentStatus;
+    }
+
+    public void updateCurrentStatus(){
+        Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
+        NamesCombiner namesCombiner = new NamesCombiner(settings, currentStatus);
+        currentStatus = namesCombiner.getCombinedNamesStatus();
     }
 
     private void initStatus(){
         Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
         NamesCombiner namesCombiner = new NamesCombiner(settings, new Status());
-        status = namesCombiner.getCombinedNamesStatus();
+        currentStatus = namesCombiner.getCombinedNamesStatus();
 
     }
 

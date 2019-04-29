@@ -1,5 +1,6 @@
 package pro.kbgame.demeter.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,17 @@ public class Status {
     private List<WaterReceiver> waterReceiverList;
 
     public Status (){
-
+        date = new Date();
+        temp = 0;
+        humidity = 0;
+        soil = 0;
+        waterReceiverList = new ArrayList<WaterReceiver>();
+        for(int i = 0; i < 6; i++){
+            waterReceiverList.add(new WaterReceiver());
+        }
+        barrelList = new ArrayList<Barrel>();
+        barrelList.add(0, new Barrel("Showering barrel", false, false));
+        barrelList.add(1,new Barrel("Watering barrel", false, false));
     }
 
     public Status(List<Barrel> barrelList, List<WaterReceiver> waterReceiverList){

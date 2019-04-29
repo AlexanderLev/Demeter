@@ -7,6 +7,14 @@ public class WaterReceiver {
     private boolean turnOnWatering;
     private int timeInMin;
 
+    public WaterReceiver(){
+        switchNumber = 0;
+        name = "";
+        watering = false;
+        turnOnWatering = false;
+        timeInMin = 0;
+    }
+
     public WaterReceiver(int switchNumber, String name, boolean watering, boolean turnOnWatering, int timeInMin) {
         this.switchNumber = switchNumber;
         this.name = name;

@@ -133,13 +133,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void initUi(){
         hideAllDrops();
-        StatusKeeper statusKeeper = StatusKeeper.getInstance(statusCallBack); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
+        StatusKeeper statusKeeper = StatusKeeper.getInstance(this, statusCallBack); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
         Status status = statusKeeper.statusCallBack();
         tvTemperature.setText(String.valueOf(status.getTemp()));
         tvHumidity.setText(String.valueOf(status.getHumidity()));
         tvSoil.setText(String.valueOf(status.getSoil()));
+        tvWateringFieldOne.setText(String.valueOf(status.getWaterReceiverList().get(0).getName()));
+        tvWateringFieldTwo.setText(String.valueOf(status.getWaterReceiverList().get(1).getName()));
+        tvWateringFieldThree.setText(String.valueOf(status.getWaterReceiverList().get(2).getName()));
+        tvWateringFieldFour.setText(String.valueOf(status.getWaterReceiverList().get(3).getName()));
+        tvWateringFieldFive.setText(String.valueOf(status.getWaterReceiverList().get(4).getName()));
+        tvWateringFieldSix.setText(String.valueOf(status.getWaterReceiverList().get(5).getName()));
 
     }
 

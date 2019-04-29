@@ -1,6 +1,7 @@
 package pro.kbgame.demeter.view;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,12 @@ public class TurnOffWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.tvWateringFieldSix)
     TextView tvWateringFieldSix;
+
+    @BindView(R.id.ivFillingShowerBarrel)
+    ImageView ivFillingShowerBarrel;
+
+    @BindView(R.id.ivFillingWateringBarrel)
+    ImageView ivFillingWateringBarrel;
 
     @BindView(R.id.swWateringFieldOne)
     SwitchCompat swWateringFieldOne;
@@ -90,7 +97,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         status = StatusKeeper.getInstance(this).getCurrentStatus();
         setNames();
         setSwitchesByStatus();
-
+        setBarrelImageByStatus();
     }
 
 
@@ -132,6 +139,28 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         swFillingWateringBarrel.setClickable(status.getBarrelList().get(1).isFilling());
         swFillingWateringBarrel.setChecked(status.getBarrelList().get(1).isFilling());
     }
+
+    private void setBarrelImageByStatus() {
+        if (status.getBarrelList().get(0).isFull()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_full);
+        } else if (!status.getBarrelList().get(0).isFull()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
+        }
+        if (status.getBarrelList().get(0).isFilling()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel__not_full);
+        }
+
+        if (status.getBarrelList().get(1).isFull()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_full);
+        } else if (!status.getBarrelList().get(1).isFull()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_empty);
+        }
+        if (status.getBarrelList().get(1).isFilling()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
+        }
+
+    }
+
 
     private void collectData() {
         status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());

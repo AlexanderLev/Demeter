@@ -249,7 +249,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setNames();
         allTimersEnabled(false);
         setSwitchesByStatus();
-
+        setBarrelImageByStatus();
     }
 
     private void setNames() {
@@ -277,6 +277,27 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         swWateringFieldFour.setChecked(status.getWaterReceiverList().get(3).isWatering());
         swWateringFieldFive.setChecked(status.getWaterReceiverList().get(4).isWatering());
         swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
+
+    }
+
+    private void setBarrelImageByStatus() {
+        if (status.getBarrelList().get(0).isFull()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_full);
+        } else if (!status.getBarrelList().get(0).isFull()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
+        }
+        if (status.getBarrelList().get(0).isFilling()) {
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel__not_full);
+        }
+
+        if (status.getBarrelList().get(1).isFull()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_full);
+        } else if (!status.getBarrelList().get(1).isFull()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_empty);
+        }
+        if (status.getBarrelList().get(1).isFilling()) {
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
+        }
 
     }
 

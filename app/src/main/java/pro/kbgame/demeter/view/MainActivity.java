@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         tvSoil.setText(String.valueOf(status.getSoil()));
         setNames();
         setDropsByStatus();
+        setBarrelImageByStatus();
     }
 
     public void registerCallBack(StatusCallBack statusCallBack) {
@@ -195,6 +196,27 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ivWateringFieldSix.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private void setBarrelImageByStatus() {
+        if (status.getBarrelList().get(0).isFull()) {
+            ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_full);
+        } else if (!status.getBarrelList().get(0).isFull()) {
+            ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
+        }
+        if (status.getBarrelList().get(0).isFilling()) {
+            ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel__not_full);
+        }
+
+        if (status.getBarrelList().get(1).isFull()) {
+            ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_full);
+        } else if (!status.getBarrelList().get(1).isFull()) {
+            ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_empty);
+        }
+        if (status.getBarrelList().get(1).isFilling()) {
+            ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
+        }
+
     }
 
     public interface StatusCallBack {

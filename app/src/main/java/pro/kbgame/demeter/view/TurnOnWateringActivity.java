@@ -16,8 +16,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
+import pro.kbgame.demeter.model.Status;
+import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class TurnOnWateringActivity extends AppCompatActivity {
+    private Status status;
 
     @BindView(R.id.tvWateringFieldOne)
     TextView tvWateringFieldOne;
@@ -194,9 +197,20 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     }
 
     private void initUi(){
+        status = StatusKeeper.getInstance(this).getCurrentStatus();
+        setNames();
         allTimersEnabled(false);
         setSwitchesListeners();
 
+    }
+
+    private void setNames(){
+        tvWateringFieldOne.setText(String.valueOf(status.getWaterReceiverList().get(0).getName()));
+        tvWateringFieldTwo.setText(String.valueOf(status.getWaterReceiverList().get(1).getName()));
+        tvWateringFieldThree.setText(String.valueOf(status.getWaterReceiverList().get(2).getName()));
+        tvWateringFieldFour.setText(String.valueOf(status.getWaterReceiverList().get(3).getName()));
+        tvWateringFieldFive.setText(String.valueOf(status.getWaterReceiverList().get(4).getName()));
+        tvWateringFieldSix.setText(String.valueOf(status.getWaterReceiverList().get(5).getName()));
     }
 
     private void allTimersEnabled(boolean state){

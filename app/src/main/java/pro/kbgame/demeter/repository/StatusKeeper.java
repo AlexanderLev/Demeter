@@ -39,6 +39,10 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
         return currentStatus;
     }
 
+    public void setCurrentStatus(Status status){
+        currentStatus = status;
+    }
+
     private void updateCurrentStatus() {
         Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
         NamesCombiner namesCombiner = new NamesCombiner(settings, currentStatus);

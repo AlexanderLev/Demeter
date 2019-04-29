@@ -14,6 +14,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.model.Status;
@@ -87,6 +88,48 @@ public class TurnOnWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldOne)
+    public void setSwWateringFieldOneChanged(boolean changed) {
+        ibWateringFieldOne.setEnabled(changed);
+        status.getWaterReceiverList().get(0).setWatering(changed);
+    }
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldTwo)
+    public void setSwWateringFieldTwoChanged(SwitchCompat swWateringFieldTwo, boolean changed) {
+        status.getWaterReceiverList().get(1).setWatering(changed);
+        ibWateringFieldTwo.setEnabled(changed);
+    }
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldThree)
+    public void setSwWateringFieldThreeChanged(SwitchCompat swWateringFieldThree, boolean changed) {
+        status.getWaterReceiverList().get(2).setWatering(changed);
+        ibWateringFieldThree.setEnabled(changed);
+    }
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldFour)
+    public void setSwWateringFieldFourChanged(SwitchCompat swWateringFieldFour, boolean changed) {
+        status.getWaterReceiverList().get(3).setWatering(changed);
+        ibWateringFieldFour.setEnabled(changed);
+    }
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldFive)
+    public void setSwWateringFieldFiveChanged(SwitchCompat swWateringFieldFive, boolean changed) {
+        status.getWaterReceiverList().get(4).setWatering(changed);
+        ibWateringFieldFive.setEnabled(changed);
+    }
+
+    @SuppressWarnings("unused")
+    @OnCheckedChanged(R.id.swWateringFieldSix)
+    public void setSwWateringFieldSixChanged(SwitchCompat swWateringFieldSix, boolean changed) {
+        status.getWaterReceiverList().get(5).setWatering(changed);
+        ibWateringFieldSix.setEnabled(changed);
+    }
 
     @SuppressWarnings("unused")
     @OnClick(R.id.ibWateringFieldOne)
@@ -164,6 +207,8 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
+        StatusKeeper.getInstance(this).setCurrentStatus(status);
+        finish();
     }
 
     @Override
@@ -200,7 +245,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         status = StatusKeeper.getInstance(this).getCurrentStatus();
         setNames();
         allTimersEnabled(false);
-        setSwitchesListeners();
+        setSwitchesByStatus();
 
     }
 
@@ -222,59 +267,14 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         ibWateringFieldSix.setEnabled(state);
     }
 
-    private void setSwitchesListeners(){
-        swWateringFieldOne.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldOne.setEnabled(isChecked);
-            }
-        });
-        swWateringFieldTwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldTwo.setEnabled(isChecked);
-            }
-        });
-        swWateringFieldThree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldThree.setEnabled(isChecked);
-            }
-        });
-        swWateringFieldFour.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldFour.setEnabled(isChecked);
-            }
-        });
-        swWateringFieldFive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldFive.setEnabled(isChecked);
-            }
-        });
-        swWateringFieldSix.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ibWateringFieldSix.setEnabled(isChecked);
-            }
-        });
-
-        swFillingShowerBarrel.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
-
-        swFillingWateringBarrel.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            }
-        });
+    private void setSwitchesByStatus(){
+        swWateringFieldOne.setChecked(status.getWaterReceiverList().get(0).isWatering());
+        swWateringFieldTwo.setChecked(status.getWaterReceiverList().get(1).isWatering());
+        swWateringFieldThree.setChecked(status.getWaterReceiverList().get(2).isWatering());
+        swWateringFieldFour.setChecked(status.getWaterReceiverList().get(3).isWatering());
+        swWateringFieldFive.setChecked(status.getWaterReceiverList().get(4).isWatering());
+        swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
 
     }
-
 
 }

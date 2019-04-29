@@ -135,10 +135,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     private void initUi(){
         hideAllDrops();
-        StatusKeeper statusKeeper = StatusKeeper.getInstance(this, statusCallBack); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
-        Status status = statusKeeper.statusCallBack();
+        StatusKeeper statusKeeper = StatusKeeper.getInstance(this); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
+        registerCallBack(statusKeeper);
+        Status status = statusCallBack.statusCallBack();
         tvTemperature.setText(String.valueOf(status.getTemp()));
         tvHumidity.setText(String.valueOf(status.getHumidity()));
         tvSoil.setText(String.valueOf(status.getSoil()));
@@ -150,6 +152,12 @@ public class MainActivity extends AppCompatActivity {
         tvWateringFieldSix.setText(String.valueOf(status.getWaterReceiverList().get(5).getName()));
 
     }
+
+
+    public void registerCallBack(StatusCallBack statusCallBack) {
+        this.statusCallBack = statusCallBack;
+    }
+
 
     private void hideAllDrops(){
         ivWateringFieldOne.setVisibility(View.INVISIBLE);

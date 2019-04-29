@@ -10,20 +10,18 @@ import pro.kbgame.demeter.view.MainActivity;
 public class StatusKeeper implements MainActivity.StatusCallBack {
 
     private static StatusKeeper instance;
-    MainActivity.StatusCallBack statusCallBack;
     Context context;
     private Status status;
 
-    public static StatusKeeper getInstance(Context context, MainActivity.StatusCallBack statusCallBack) {
+    public static StatusKeeper getInstance(Context context) {
         if(instance == null){
-            instance = new StatusKeeper(context, statusCallBack);
+            instance = new StatusKeeper(context);
         }
         return instance;
     }
 
-    private StatusKeeper(Context context, MainActivity.StatusCallBack statusCallBack){
+    private StatusKeeper(Context context){
         this.context = context;
-        this.statusCallBack = statusCallBack;
         initStatus();
     }
 
@@ -46,6 +44,5 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
         status = namesCombiner.getCombinedNamesStatus();
 
     }
-
 
 }

@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.model.Status;
-import pro.kbgame.demeter.repository.MockStatus;
+import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUi(){
         hideAllDrops();
-        statusCallBack = new MockStatus(statusCallBack);
-        Status status = statusCallBack.statusCallBack();
+        StatusKeeper statusKeeper = StatusKeeper.getInstance(statusCallBack); //or StatusKeeper.getInstance(statusCallBack).statusCallBack()
+        Status status = statusKeeper.statusCallBack();
         tvTemperature.setText(String.valueOf(status.getTemp()));
         tvHumidity.setText(String.valueOf(status.getHumidity()));
         tvSoil.setText(String.valueOf(status.getSoil()));

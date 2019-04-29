@@ -28,7 +28,7 @@ public class PreferencesKeeper {
         return instance;
     }
 
-    public void saveToPrefs(Context context, Settings settings){
+    public void saveSettingsToPrefs(Context context, Settings settings){
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(FIELD_NAME_ONE, settings.getFieldNameOne());
@@ -44,7 +44,7 @@ public class PreferencesKeeper {
     }
 
 
-    public Settings loadFromPrefs(Context context){
+    public Settings loadSettingsFromPrefs(Context context){
         Settings settings = new Settings();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         settings.setFieldNameOne(sharedPreferences.getString(FIELD_NAME_ONE, ""));

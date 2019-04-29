@@ -1,7 +1,6 @@
 package pro.kbgame.demeter.view;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -57,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        PreferencesKeeper.getInstance().saveToPrefs(this, collectDataToSave());
+        PreferencesKeeper.getInstance().saveSettingsToPrefs(this, collectDataToSave());
         Toast.makeText(this, R.string.all_saved, Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -89,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
     };
 
     private Settings loadSettingsData(){
-        return PreferencesKeeper.getInstance().loadFromPrefs(this);
+        return PreferencesKeeper.getInstance().loadSettingsFromPrefs(this);
 
     }
 

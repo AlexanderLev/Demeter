@@ -1,8 +1,10 @@
 package pro.kbgame.demeter.model;
 
+import java.util.Date;
 import java.util.List;
 
 public class Status {
+    private Date date;
     private int temp;
     private int humidity;
     private int soil;
@@ -13,18 +15,26 @@ public class Status {
 
     }
 
-    public Status(int temp, int humidity, int soil){
-        this.temp = temp;
-        this.humidity = humidity;
-        this.soil = soil;
+    public Status(List<Barrel> barrelList, List<WaterReceiver> waterReceiverList){
+        this.barrelList = barrelList;
+        this.waterReceiverList = waterReceiverList;
     }
 
-    public Status(int temp, int humidity, int soil, List<Barrel> barrelList, List<WaterReceiver> waterReceiverList){
+    public Status(Date date, int temp, int humidity, int soil, List<Barrel> barrelList, List<WaterReceiver> waterReceiverList){
+        this.date = date;
         this.temp = temp;
         this.humidity = humidity;
         this.soil = soil;
         this.barrelList = barrelList;
         this.waterReceiverList = waterReceiverList;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getTemp() {

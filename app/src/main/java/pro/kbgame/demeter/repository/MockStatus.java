@@ -1,31 +1,24 @@
 package pro.kbgame.demeter.repository;
 
 import pro.kbgame.demeter.model.Status;
-import pro.kbgame.demeter.view.MainActivity;
 
-public class MockStatus implements MainActivity.StatusCallBack {
+public class MockStatus{
     private Status status;
-    private MainActivity.StatusCallBack statusCallBack;
 
-    public MockStatus(MainActivity.StatusCallBack statusCallBack){
-        this.statusCallBack = statusCallBack;
+    public MockStatus(){
     }
 
     private void makeMockStatus(){
-        status = new Status(24, 740, 35);
+        status = new Status();
+
     }
 
-    private Status getStatus(){
+    public Status getStatus(){
         if (status == null){
             makeMockStatus();
         }
 
         return status;
-    }
-
-    @Override
-    public Status statusCallBack() {
-        return getStatus();
     }
 
 }

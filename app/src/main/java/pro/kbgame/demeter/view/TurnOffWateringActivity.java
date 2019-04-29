@@ -8,7 +8,6 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.model.Status;
@@ -64,7 +63,6 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @OnClick(R.id.btTurnOffWateringAll)
     public void btTurnOffWateringAllClick() {
         checkAllSwitches(false);
-        setAllWateringStatusOff();
     }
 
     @SuppressWarnings("unused")
@@ -76,46 +74,9 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        StatusKeeper.getInstance(this).setCurrentStatus(status);
+        collectData();
         finish();
     }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldOne)
-    public void setSwWateringFieldOneChanged(boolean changed) {
-        status.getWaterReceiverList().get(0).setWatering(!changed);
-    }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldTwo)
-    public void setSwWateringFieldTwoChanged(SwitchCompat swWateringFieldTwo, boolean changed) {
-        status.getWaterReceiverList().get(1).setWatering(!changed);
-    }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldThree)
-    public void setSwWateringFieldThreeChanged(SwitchCompat swWateringFieldThree, boolean changed) {
-        status.getWaterReceiverList().get(2).setWatering(!changed);
-    }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldFour)
-    public void setSwWateringFieldFourChanged(SwitchCompat swWateringFieldFour, boolean changed) {
-        status.getWaterReceiverList().get(3).setWatering(!changed);
-    }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldFive)
-    public void setSwWateringFieldFiveChanged(SwitchCompat swWateringFieldFive, boolean changed) {
-        status.getWaterReceiverList().get(4).setWatering(!changed);
-    }
-
-    @SuppressWarnings("unused")
-    @OnCheckedChanged(R.id.swWateringFieldSix)
-    public void setSwWateringFieldSixChanged(SwitchCompat swWateringFieldSix, boolean changed) {
-        status.getWaterReceiverList().get(5).setWatering(!changed);
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,23 +114,33 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         tvWateringFieldSix.setText(String.valueOf(status.getWaterReceiverList().get(5).getName()));
     }
 
-    private void setSwitchesByStatus(){
+    private void setSwitchesByStatus() {
+        swWateringFieldOne.setClickable(status.getWaterReceiverList().get(0).isWatering());
         swWateringFieldOne.setChecked(status.getWaterReceiverList().get(0).isWatering());
+        swWateringFieldTwo.setClickable(status.getWaterReceiverList().get(1).isWatering());
         swWateringFieldTwo.setChecked(status.getWaterReceiverList().get(1).isWatering());
         swWateringFieldThree.setChecked(status.getWaterReceiverList().get(2).isWatering());
+        swWateringFieldThree.setClickable(status.getWaterReceiverList().get(2).isWatering());
         swWateringFieldFour.setChecked(status.getWaterReceiverList().get(3).isWatering());
+        swWateringFieldFour.setClickable(status.getWaterReceiverList().get(3).isWatering());
         swWateringFieldFive.setChecked(status.getWaterReceiverList().get(4).isWatering());
+        swWateringFieldFive.setClickable(status.getWaterReceiverList().get(4).isWatering());
         swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
+        swWateringFieldSix.setClickable(status.getWaterReceiverList().get(5).isWatering());
+        swFillingShowerBarrel.setClickable(status.getBarrelList().get(0).isFilling());
+        swFillingShowerBarrel.setChecked(status.getBarrelList().get(0).isFilling());
+        swFillingWateringBarrel.setClickable(status.getBarrelList().get(1).isFilling());
+        swFillingWateringBarrel.setChecked(status.getBarrelList().get(1).isFilling());
     }
 
-    private void setAllWateringStatusOff(){
-        for(int i = 0; i < status.getWaterReceiverList().size(); i++){
-            status.getWaterReceiverList().get(i).setWatering(false);
-        }
-        for(int i = 0; i < status.getBarrelList().size(); i++){
-            status.getBarrelList().get(i).setFilling(false);
-        }
+    private void collectData() {
+        status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());
+        status.getWaterReceiverList().get(1).setWatering(swWateringFieldTwo.isChecked());
+        status.getWaterReceiverList().get(2).setWatering(swWateringFieldThree.isChecked());
+        status.getWaterReceiverList().get(3).setWatering(swWateringFieldFour.isChecked());
+        status.getWaterReceiverList().get(4).setWatering(swWateringFieldFive.isChecked());
+        status.getWaterReceiverList().get(5).setWatering(swWateringFieldSix.isChecked());
+        status.getBarrelList().get(0).setFilling(swFillingShowerBarrel.isChecked());
+        status.getBarrelList().get(1).setFilling(swFillingWateringBarrel.isChecked());
     }
-
-
 }

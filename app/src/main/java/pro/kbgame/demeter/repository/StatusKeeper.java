@@ -32,7 +32,7 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
 
     public Status getCurrentStatus() {
         if (currentStatus != null) {
-            updateCurrentStatus();
+            updateCurrentNamesInStatus();
         } else {
             currentStatus = new Status();
         }
@@ -43,7 +43,7 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
         currentStatus = status;
     }
 
-    private void updateCurrentStatus() {
+    private void updateCurrentNamesInStatus() {
         Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
         NamesCombiner namesCombiner = new NamesCombiner(settings, currentStatus);
         currentStatus = namesCombiner.getCombinedNamesStatus();

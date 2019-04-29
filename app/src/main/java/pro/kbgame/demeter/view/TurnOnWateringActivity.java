@@ -21,7 +21,6 @@ import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class TurnOnWateringActivity extends AppCompatActivity {
     private Status status;
-    private Status currentStatus;
 
     @BindView(R.id.tvWateringFieldOne)
     TextView tvWateringFieldOne;
@@ -141,7 +140,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(0).setTimeInMin(time);
             }
         });
 
@@ -153,7 +152,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(1).setTimeInMin(time);
             }
         });
     }
@@ -164,7 +163,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(3).setTimeInMin(time);
             }
         });
     }
@@ -175,7 +174,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(4).setTimeInMin(time);
             }
         });
     }
@@ -186,7 +185,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(5).setTimeInMin(time);
             }
         });
     }
@@ -197,7 +196,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-
+                status.getWaterReceiverList().get(6).setTimeInMin(time);
             }
         });
     }
@@ -280,6 +279,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
 
     }
+
 
     private void collectData() {
         status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());

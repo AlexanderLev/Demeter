@@ -1,6 +1,9 @@
 package pro.kbgame.demeter.view;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +23,7 @@ import pro.kbgame.demeter.repository.StatusKeeper;
 public class MainActivity extends AppCompatActivity {
 
     private Status status;
+    private BroadcastReceiver broadcastReceiver;
 
     @BindView(R.id.tvStatus)
     TextView tvStatus;
@@ -131,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initUi();
+        registerReceiver();
     }
 
     @Override
@@ -152,9 +157,17 @@ public class MainActivity extends AppCompatActivity {
         setBarrelImageByStatus();
     }
 
-    public void updateUi(){
-        initUi();
+    private void registerReceiver(){
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                recreate();
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("sms_received"));
+
     }
+
 
     public void registerCallBack(StatusCallBack statusCallBack) {
         this.statusCallBack = statusCallBack;

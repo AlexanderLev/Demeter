@@ -30,11 +30,11 @@ public class SmsMonitor extends BroadcastReceiver {
                     bodyText.append(messages[i].getMessageBody());
                 }
                 String body = bodyText.toString();
-//                Intent mIntent = new Intent(context, SmsService.class);
-//                mIntent.putExtra("sms_body", body);
-//                context.startService(mIntent);
 
                 SmsConverter.getInstance(context).setStatusFromSms(body);
+
+                Intent in = new Intent("sms_received");
+                context.sendBroadcast(in);
 
                 abortBroadcast();
             }

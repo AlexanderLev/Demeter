@@ -19,7 +19,7 @@ public class Status {
         soil = 0;
         waterReceiverList = new ArrayList<WaterReceiver>();
         for(int i = 0; i < 6; i++){
-            waterReceiverList.add(new WaterReceiver());
+            waterReceiverList.add(new WaterReceiver(i));
         }
         barrelList = new ArrayList<Barrel>();
         barrelList.add(0, new Barrel("Showering barrel", false, false));

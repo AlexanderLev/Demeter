@@ -7,7 +7,7 @@ public class WaterReceiver {
     private boolean turnOnWatering;
     private int timeInMin;
 
-    public WaterReceiver(){
+    public WaterReceiver(int switchNumber){
         switchNumber = 0;
         name = "";
         watering = false;

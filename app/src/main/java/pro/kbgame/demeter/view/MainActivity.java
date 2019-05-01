@@ -152,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
         setBarrelImageByStatus();
     }
 
+    public void updateUi(){
+        initUi();
+    }
+
     public void registerCallBack(StatusCallBack statusCallBack) {
         this.statusCallBack = statusCallBack;
     }

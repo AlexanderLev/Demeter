@@ -7,21 +7,22 @@ import java.util.Date;
 import pro.kbgame.demeter.model.Barrel;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.model.WaterReceiver;
+import pro.kbgame.demeter.repository.PreferencesKeeper;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
-public class SmsConverter {
-    private static SmsConverter instance;
+public class SmsCommander {
+    private static SmsCommander instance;
     private Status status;
     private Context context;
 
-    public static SmsConverter getInstance(Context context) {
+    public static SmsCommander getInstance(Context context) {
         if (instance == null) {
-            instance = new SmsConverter(context);
+            instance = new SmsCommander(context);
         }
         return instance;
     }
 
-    private SmsConverter (Context context){
+    private SmsCommander(Context context){
         this.context = context;
     }
 
@@ -31,8 +32,11 @@ public class SmsConverter {
         return "";
     }
 
-    public String convertToSms(String directCommandString) {
-        return "";
+    public void getCurrentStatus() {
+        String receivingPhoneNumber = "smsto:"+ PreferencesKeeper.getInstance().loadSettingsFromPrefs(context).getReceivingPhoneNumber();
+        String commandGetStatus = "Status";
+        android.telephony.SmsManager.getDefault().sendTextMessage(receivingPhoneNumber, null, commandGetStatus, null, null);
+
     }
 
 

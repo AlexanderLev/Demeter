@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
+import pro.kbgame.demeter.common.SmsCommander;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.model.WaterReceiver;
 import pro.kbgame.demeter.repository.StatusKeeper;
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btGetStatus)
     public void btGetStatusClick() {
+        SmsCommander.getInstance(this).getCurrentStatus();
     }
 
     @SuppressWarnings("unused")

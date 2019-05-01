@@ -57,9 +57,11 @@ public class SmsCommander {
             }
             if (string.startsWith("Showering barrel")) {
                 status.getBarrelList().get(0).setFull(isBarrelFull(string));
+                status.getBarrelList().get(0).setFilling(isBarrelFilling(string));
             }
             if (string.startsWith("Watering barrel")){
                 status.getBarrelList().get(1).setFull(isBarrelFull(string));
+                status.getBarrelList().get(1).setFilling(isBarrelFilling(string));
             }
             if (string.startsWith("Watering off")){
                 for (WaterReceiver waterReceiver: status.getWaterReceiverList()
@@ -96,7 +98,15 @@ public class SmsCommander {
     }
 
     private boolean isBarrelFull(String checkingString) {
-        if (checkingString.contains(" not ")) {
+        if (checkingString.contains("not full")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean isBarrelFilling(String checkingString) {
+        if (checkingString.contains("filling")) {
             return false;
         } else {
             return true;

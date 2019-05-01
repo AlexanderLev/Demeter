@@ -277,6 +277,8 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         swWateringFieldFour.setChecked(status.getWaterReceiverList().get(3).isWatering());
         swWateringFieldFive.setChecked(status.getWaterReceiverList().get(4).isWatering());
         swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
+        swFillingShowerBarrel.setChecked(status.getBarrelList().get(0).isFilling());
+        swFillingWateringBarrel.setChecked(status.getBarrelList().get(1).isFilling());
 
     }
 

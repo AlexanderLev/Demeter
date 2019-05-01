@@ -13,11 +13,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.model.Status;
+import pro.kbgame.demeter.model.WaterReceiver;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class MainActivity extends AppCompatActivity {
@@ -149,10 +152,12 @@ public class MainActivity extends AppCompatActivity {
         StatusKeeper statusKeeper = StatusKeeper.getInstance(this);
         registerCallBack(statusKeeper);
         status = statusCallBack.statusCallBack();
+        tvDateOfStatus.setText(String.format(getResources().getString(R.string.main_activity_status_date), getTimeToDisplay()));
         tvTemperature.setText(String.valueOf(status.getTemp()));
         tvHumidity.setText(String.valueOf(status.getHumidity()));
         tvSoil.setText(String.valueOf(status.getSoil()));
         setNames();
+        setWaterReceiversNumbers();
         setDropsByStatus();
         setBarrelImageByStatus();
     }
@@ -234,6 +239,20 @@ public class MainActivity extends AppCompatActivity {
             ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
         }
 
+    }
+
+    private String getTimeToDisplay(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        return simpleDateFormat.format(status.getDate());
+    }
+
+    private void setWaterReceiversNumbers(){
+        int i = 1;
+        for (WaterReceiver waterReceiver: status.getWaterReceiverList()
+             ) {
+            waterReceiver.setSwitchNumber(i);
+            i++;
+        }
     }
 
     public interface StatusCallBack {

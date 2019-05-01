@@ -10,6 +10,8 @@
     <string name="all_min"> min</string>
     <string name="all_full">full</string>
 
+    <string name="main_activity_status_date">Status date: %1$s</string>
+
     <string name="all_water_barrel">Water barrel</string>
     <string name="all_shower_barrel">Shower barrel</string>
     <string name="all_filling">Filling</string>

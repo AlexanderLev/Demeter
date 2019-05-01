@@ -80,8 +80,8 @@ public class SmsConverter {
 
     private int [] getIntValuesFromSubstring(String receiversNumbers){
         String [] receiversNumbersArray = receiversNumbers.split(",");
-        int [] numbers = new int[receiversNumbers.length()];
-        for (int i = 0; i < receiversNumbers.length(); i++) {
+        int [] numbers = new int[receiversNumbersArray.length];
+        for (int i = 0; i < receiversNumbersArray.length; i++) {
             numbers[i] = Integer.parseInt(receiversNumbersArray[i]);
         }
         return numbers;

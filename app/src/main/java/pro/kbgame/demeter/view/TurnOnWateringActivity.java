@@ -6,12 +6,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
@@ -106,6 +110,12 @@ public class TurnOnWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
+
+    @BindViews({R.id.tvWateringFieldOneTime, R.id.tvWateringFieldTwoTime, R.id.tvWateringFieldThreeTime, R.id.tvWateringFieldFourTime, R.id.tvWateringFieldFiveTime, R.id.tvWateringFieldSixTime})
+    List <TextView> timersTvList;
+
+    @BindViews({R.id.swWateringFieldOne, R.id.swWateringFieldTwo, R.id.swWateringFieldThree, R.id.swWateringFieldFour, R.id.swWateringFieldFive, R.id.swWateringFieldSix})
+    List<SwitchCompat> receiversSwList;
 
 
     @SuppressWarnings("unused")
@@ -230,9 +240,14 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        collectData();
-        CommandsTranslator.getInstance(this).turnWatering();
-        finish();
+        if(isZeroTimeValuePresent()){
+            Toast.makeText(this, R.string.all_set_watering_time, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            collectData();
+            CommandsTranslator.getInstance(this).turnWatering();
+            finish();
+        }
     }
 
     @Override
@@ -350,6 +365,18 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         status.getWaterReceiverList().get(5).setTimeInMin(Integer.parseInt(tvWateringFieldSixTime.getText().toString()));
         status.getBarrelList().get(0).setFilling(swFillingShowerBarrel.isChecked());
         status.getBarrelList().get(1).setFilling(swFillingWateringBarrel.isChecked());
+    }
+
+    private boolean isZeroTimeValuePresent(){
+        for (int i = 0; i < timersTvList.size(); i++){
+            int receiverTime = status.getWaterReceiverList().get(i).getTimeInMin();
+            int tvTimer = Integer.parseInt(timersTvList.get(i).getText().toString());
+            boolean checked = receiversSwList.get(i).isChecked();
+            if(checked && receiverTime == 0 && tvTimer == 0){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

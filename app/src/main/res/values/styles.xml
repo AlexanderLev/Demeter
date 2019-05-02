@@ -20,4 +20,13 @@
         <item name="android:backgroundTint">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="tvWateringTime">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:maxEms">3</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
 </resources>

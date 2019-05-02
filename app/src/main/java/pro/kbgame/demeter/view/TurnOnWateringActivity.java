@@ -76,6 +76,24 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     @BindView(R.id.ibWateringFieldSix)
     ImageButton ibWateringFieldSix;
 
+    @BindView(R.id.tvWateringFieldOneTime)
+    TextView tvWateringFieldOneTime;
+
+    @BindView(R.id.tvWateringFieldTwoTime)
+    TextView tvWateringFieldTwoTime;
+
+    @BindView(R.id.tvWateringFieldThreeTime)
+    TextView tvWateringFieldThreeTime;
+
+    @BindView(R.id.tvWateringFieldFourTime)
+    TextView tvWateringFieldFourTime;
+
+    @BindView(R.id.tvWateringFieldFiveTime)
+    TextView tvWateringFieldFiveTime;
+
+    @BindView(R.id.tvWateringFieldSixTime)
+    TextView tvWateringFieldSixTime;
+
     @BindView(R.id.ivFillingShowerBarrel)
     ImageView ivFillingShowerBarrel;
 
@@ -87,6 +105,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
+
 
     @SuppressWarnings("unused")
     @OnCheckedChanged(R.id.swWateringFieldOne)
@@ -140,7 +159,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(0).setTimeInMin(time);
+                tvWateringFieldOneTime.setText(String.valueOf(time));
             }
         });
 
@@ -152,7 +171,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(1).setTimeInMin(time);
+                tvWateringFieldTwoTime.setText(String.valueOf(time));
             }
         });
     }
@@ -163,7 +182,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(3).setTimeInMin(time);
+                tvWateringFieldThreeTime.setText(String.valueOf(time));
             }
         });
     }
@@ -174,7 +193,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(4).setTimeInMin(time);
+                tvWateringFieldFourTime.setText(String.valueOf(time));
             }
         });
     }
@@ -185,7 +204,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(5).setTimeInMin(time);
+                tvWateringFieldFiveTime.setText(String.valueOf(time));
             }
         });
     }
@@ -196,7 +215,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setTimer(new SetWateringTime() {
             @Override
             public void timeInMin(int time) {
-                status.getWaterReceiverList().get(6).setTimeInMin(time);
+                tvWateringFieldSixTime.setText(String.valueOf(time));
             }
         });
     }
@@ -248,6 +267,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         status = StatusKeeper.getInstance(this).getCurrentStatus();
         setNames();
         allTimersEnabled(false);
+        allTimersSetZeroTime();
         setSwitchesByStatus();
         setBarrelImageByStatus();
     }
@@ -268,6 +288,15 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         ibWateringFieldFour.setEnabled(state);
         ibWateringFieldFive.setEnabled(state);
         ibWateringFieldSix.setEnabled(state);
+    }
+
+    private void allTimersSetZeroTime(){
+        tvWateringFieldOneTime.setText("0");
+        tvWateringFieldTwoTime.setText("0");
+        tvWateringFieldThreeTime.setText("0");
+        tvWateringFieldFourTime.setText("0");
+        tvWateringFieldFiveTime.setText("0");
+        tvWateringFieldSixTime.setText("0");
     }
 
     private void setSwitchesByStatus() {
@@ -306,11 +335,17 @@ public class TurnOnWateringActivity extends AppCompatActivity {
 
     private void collectData() {
         status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());
+        status.getWaterReceiverList().get(0).setTimeInMin(Integer.parseInt(tvWateringFieldOneTime.getText().toString()));
         status.getWaterReceiverList().get(1).setWatering(swWateringFieldTwo.isChecked());
+        status.getWaterReceiverList().get(1).setTimeInMin(Integer.parseInt(tvWateringFieldTwoTime.getText().toString()));
         status.getWaterReceiverList().get(2).setWatering(swWateringFieldThree.isChecked());
+        status.getWaterReceiverList().get(2).setTimeInMin(Integer.parseInt(tvWateringFieldThreeTime.getText().toString()));
         status.getWaterReceiverList().get(3).setWatering(swWateringFieldFour.isChecked());
+        status.getWaterReceiverList().get(3).setTimeInMin(Integer.parseInt(tvWateringFieldFourTime.getText().toString()));
         status.getWaterReceiverList().get(4).setWatering(swWateringFieldFive.isChecked());
+        status.getWaterReceiverList().get(4).setTimeInMin(Integer.parseInt(tvWateringFieldFiveTime.getText().toString()));
         status.getWaterReceiverList().get(5).setWatering(swWateringFieldSix.isChecked());
+        status.getWaterReceiverList().get(5).setTimeInMin(Integer.parseInt(tvWateringFieldSixTime.getText().toString()));
         status.getBarrelList().get(0).setFilling(swFillingShowerBarrel.isChecked());
         status.getBarrelList().get(1).setFilling(swFillingWateringBarrel.isChecked());
     }

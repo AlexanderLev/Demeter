@@ -7,36 +7,34 @@ import java.util.Date;
 import pro.kbgame.demeter.model.Barrel;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.model.WaterReceiver;
-import pro.kbgame.demeter.repository.PreferencesKeeper;
+import pro.kbgame.demeter.network.SmsWorker;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
-public class SmsCommander {
-    private static SmsCommander instance;
+public class CommandsTranslator {
+    private static CommandsTranslator instance;
     private Status status;
     private Context context;
 
-    public static SmsCommander getInstance(Context context) {
+    public static CommandsTranslator getInstance(Context context) {
         if (instance == null) {
-            instance = new SmsCommander(context);
+            instance = new CommandsTranslator(context);
         }
         return instance;
     }
 
-    private SmsCommander(Context context){
+    private CommandsTranslator(Context context){
         this.context = context;
     }
 
 
 
-    public String convertToSms(Status commandStatus) {
-        return "";
+    public void turnWateringOn(Status commandStatus) {
+
     }
 
     public void getCurrentStatus() {
-        String receivingPhoneNumber = "smsto:"+ PreferencesKeeper.getInstance().loadSettingsFromPrefs(context).getReceivingPhoneNumber();
-        String commandGetStatus = "Status";
-        android.telephony.SmsManager.getDefault().sendTextMessage(receivingPhoneNumber, null, commandGetStatus, null, null);
-
+        SmsWorker smsWorker = new SmsWorker(context);
+        smsWorker.sendSmsToReceiver("Status");
     }
 
 
@@ -77,7 +75,7 @@ public class SmsCommander {
             if (string.startsWith("Watering on:")){
                 String[] splittedStrings = string.split(":");
                 int [] receiversNumbers = getIntValuesFromSubstring(splittedStrings[1]);
-                turnWateringOn(receiversNumbers);
+                wateringTurnedOnReceivers(receiversNumbers);
             }
 
         }
@@ -113,7 +111,7 @@ public class SmsCommander {
         }
     }
 
-    private void turnWateringOn(int[] receiversNumbers){
+    private void wateringTurnedOnReceivers(int[] receiversNumbers){
         for (int number : receiversNumbers
              ) {
             for (int i = 0; i < status.getWaterReceiverList().size(); i++) {

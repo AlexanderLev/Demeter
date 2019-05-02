@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsMessage;
 
-import pro.kbgame.demeter.common.SmsCommander;
+import pro.kbgame.demeter.common.CommandsTranslator;
 import pro.kbgame.demeter.repository.PreferencesKeeper;
 
 public class SmsMonitor extends BroadcastReceiver {
@@ -31,7 +31,7 @@ public class SmsMonitor extends BroadcastReceiver {
                 }
                 String body = bodyText.toString();
 
-                SmsCommander.getInstance(context).setStatusFromSms(body);
+                CommandsTranslator.getInstance(context).setStatusFromSms(body);
 
                 Intent in = new Intent("sms_received");
                 context.sendBroadcast(in);

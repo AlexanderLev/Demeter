@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
+import pro.kbgame.demeter.common.CommandsTranslator;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
@@ -230,6 +231,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     @OnClick(R.id.btSave)
     public void btSaveClick() {
         collectData();
+        CommandsTranslator.getInstance(this).turnWatering();
         finish();
     }
 

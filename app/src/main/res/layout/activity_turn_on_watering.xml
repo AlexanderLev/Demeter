@@ -45,7 +45,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldOne"
@@ -84,7 +90,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldTwo"
@@ -123,7 +135,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldThree"
@@ -163,7 +181,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldFour"
@@ -202,7 +226,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldFive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldFive"
@@ -241,7 +271,13 @@
                     style="@style/tvChannelField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="5" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldSix"

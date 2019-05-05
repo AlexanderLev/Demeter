@@ -43,9 +43,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldOne"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldOne"
@@ -66,9 +72,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldTwo"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldTwo"
@@ -89,9 +101,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldThree"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldThree"
@@ -113,9 +131,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldFour"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldFour"
@@ -136,9 +160,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldFive"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldFive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldFive"
@@ -159,9 +189,15 @@
                 <TextView
                     android:id="@+id/tvWateringFieldSix"
                     style="@style/tvChannelField"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3" />
+
+                <ImageView
+                    android:id="@+id/ivWateringFieldSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_water_drop_blue" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWateringFieldSix"

@@ -1,6 +1,7 @@
 package pro.kbgame.demeter.view;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +43,24 @@ public class TurnOffWateringActivity extends AppCompatActivity {
 
     @BindView(R.id.ivFillingWateringBarrel)
     ImageView ivFillingWateringBarrel;
+
+    @BindView(R.id.ivWateringFieldOne)
+    ImageView ivWateringFieldOne;
+
+    @BindView(R.id.ivWateringFieldTwo)
+    ImageView ivWateringFieldTwo;
+
+    @BindView(R.id.ivWateringFieldThree)
+    ImageView ivWateringFieldThree;
+
+    @BindView(R.id.ivWateringFieldFour)
+    ImageView ivWateringFieldFour;
+
+    @BindView(R.id.ivWateringFieldFive)
+    ImageView ivWateringFieldFive;
+
+    @BindView(R.id.ivWateringFieldSix)
+    ImageView ivWateringFieldSix;
 
     @BindView(R.id.swWateringFieldOne)
     SwitchCompat swWateringFieldOne;
@@ -100,6 +119,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         setNames();
         setSwitchesByStatus();
         setBarrelImageByStatus();
+        setDropsByStatus();
     }
 
 
@@ -161,6 +181,39 @@ public class TurnOffWateringActivity extends AppCompatActivity {
             ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
         }
 
+    }
+
+    private void setDropsByStatus() {
+        if (status.getWaterReceiverList().get(0).isWatering()) {
+            ivWateringFieldOne.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldOne.setVisibility(View.INVISIBLE);
+        }
+        if (status.getWaterReceiverList().get(1).isWatering()) {
+            ivWateringFieldTwo.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldTwo.setVisibility(View.INVISIBLE);
+        }
+        if (status.getWaterReceiverList().get(2).isWatering()) {
+            ivWateringFieldThree.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldThree.setVisibility(View.INVISIBLE);
+        }
+        if (status.getWaterReceiverList().get(3).isWatering()) {
+            ivWateringFieldFour.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldFour.setVisibility(View.INVISIBLE);
+        }
+        if (status.getWaterReceiverList().get(4).isWatering()) {
+            ivWateringFieldFive.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldFive.setVisibility(View.INVISIBLE);
+        }
+        if (status.getWaterReceiverList().get(5).isWatering()) {
+            ivWateringFieldSix.setVisibility(View.VISIBLE);
+        } else {
+            ivWateringFieldSix.setVisibility(View.INVISIBLE);
+        }
     }
 
 

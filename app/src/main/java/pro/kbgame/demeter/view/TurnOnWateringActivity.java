@@ -260,7 +260,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     @OnClick(R.id.btSave)
     public void btSaveClick() {
         if(isZeroTimeValuePresent()){
-            Toast.makeText(this, R.string.all_set_watering_time, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.watering_on_set_watering_time, Toast.LENGTH_SHORT).show();
         }
         else {
             collectData();
@@ -304,7 +304,6 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         setNames();
         allTimersEnabled(false);
         allTimersSetZeroTime();
-        setSwitchesByStatus();
         setBarrelImageByStatus();
         setDropsByStatus();
     }
@@ -334,18 +333,6 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         tvWateringFieldFourTime.setText("0");
         tvWateringFieldFiveTime.setText("0");
         tvWateringFieldSixTime.setText("0");
-    }
-
-    private void setSwitchesByStatus() {
-        swWateringFieldOne.setChecked(status.getWaterReceiverList().get(0).isWatering());
-        swWateringFieldTwo.setChecked(status.getWaterReceiverList().get(1).isWatering());
-        swWateringFieldThree.setChecked(status.getWaterReceiverList().get(2).isWatering());
-        swWateringFieldFour.setChecked(status.getWaterReceiverList().get(3).isWatering());
-        swWateringFieldFive.setChecked(status.getWaterReceiverList().get(4).isWatering());
-        swWateringFieldSix.setChecked(status.getWaterReceiverList().get(5).isWatering());
-        swFillingShowerBarrel.setChecked(status.getBarrelList().get(0).isFilling());
-        swFillingWateringBarrel.setChecked(status.getBarrelList().get(1).isFilling());
-
     }
 
     private void setBarrelImageByStatus() {

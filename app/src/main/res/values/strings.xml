@@ -47,6 +47,6 @@
     <string name="content_description_filling_shower_barrel">Filling shower barrel</string>
 
     <string name="all_test_three_digit_value">---</string>
-    <string name="all_set_watering_time">Set watering time</string>
+    <string name="watering_on_set_watering_time">Tap on clock image and set watering time</string>
 
 </resources>

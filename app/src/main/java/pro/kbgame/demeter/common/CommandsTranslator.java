@@ -1,6 +1,7 @@
 package pro.kbgame.demeter.common;
 
 import android.content.Context;
+import android.util.SparseBooleanArray;
 
 import java.util.Date;
 import java.util.List;
@@ -29,18 +30,26 @@ public class CommandsTranslator {
 
 
     public void turnWatering() {
-        if (!anyWateringOn()) {
+        String command = "Watering on:";
+        String objects = parseObjectsToWatering();
+        String smsText = command.concat(objects);
+        SmsWorker smsWorker = new SmsWorker(context);
+        smsWorker.sendSmsToReceiver(smsText);
+    }
+
+    public void turnWatering(SparseBooleanArray switchesOffPositons) {
+        if ( isAllWateringOff(switchesOffPositons)) {
             SmsWorker smsWorker = new SmsWorker(context);
             smsWorker.sendSmsToReceiver("Off watering all");
-        }
-        else {
-            String command = "Watering on:";
-            String objects = parseObjectsToWatering();
+        } else {
+            String command = "Watering off at: ";
+            String objects = parseObjectsToWateringOff(switchesOffPositons);
             String smsText = command.concat(objects);
             SmsWorker smsWorker = new SmsWorker(context);
             smsWorker.sendSmsToReceiver(smsText);
         }
     }
+
 
     public void getCurrentStatus() {
         SmsWorker smsWorker = new SmsWorker(context);
@@ -133,7 +142,7 @@ public class CommandsTranslator {
         }
     }
 
-    private boolean anyWateringOn() {
+    private boolean isAnyWateringOn() {
         boolean watering = false;
         List<Barrel> barrels = StatusKeeper.getInstance(context).statusCallBack().getBarrelList();
         List<WaterReceiver> receivers = StatusKeeper.getInstance(context).statusCallBack().getWaterReceiverList();
@@ -150,23 +159,23 @@ public class CommandsTranslator {
         return watering;
     }
 
-    private String parseObjectsToWatering (){
+    private String parseObjectsToWatering() {
         StringBuilder stringBuilder = new StringBuilder();
         Status statusToParse = StatusKeeper.getInstance(context).getCurrentStatus();
         List<Barrel> barrels = statusToParse.getBarrelList();
-        if(barrels.get(0).isFilling()){
+        if (barrels.get(0).isFilling()) {
             String showerBarFillingOn = "shower barrel;";
             stringBuilder.append(showerBarFillingOn);
         }
-        if(barrels.get(1).isFilling()){
+        if (barrels.get(1).isFilling()) {
             String wateringBarrelFillingOn = "watering barrel;";
             stringBuilder.append(wateringBarrelFillingOn);
         }
 
         List<WaterReceiver> waterReceiverList = statusToParse.getWaterReceiverList();
-        for (WaterReceiver receiver: waterReceiverList
-             ) {
-            if(receiver.isWatering()){
+        for (WaterReceiver receiver : waterReceiverList
+        ) {
+            if (receiver.isWatering()) {
                 String number = String.valueOf(receiver.getSwitchNumber());
                 String localSeparator = " - ";
                 String time = String.valueOf(receiver.getTimeInMin());
@@ -175,6 +184,32 @@ public class CommandsTranslator {
             }
         }
 
+        return stringBuilder.toString();
+    }
+
+    private boolean isAllWateringOff(SparseBooleanArray switchesOffPositions) {
+        boolean all = true;
+        for (int i = 0; i < switchesOffPositions.size(); i++) {
+            if (!switchesOffPositions.get(i)) {
+                all = false;
+            }
+        }
+        return all;
+    }
+
+    private String parseObjectsToWateringOff(SparseBooleanArray switchesOffPositions) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < switchesOffPositions.size(); i++) {
+          if (switchesOffPositions.get(i) && i != switchesOffPositions.size()-2 && i != switchesOffPositions.size() -1) {
+              stringBuilder.append(i).append(",").append(" ");
+            }
+          else if(switchesOffPositions.get(i) && i == switchesOffPositions.size()-2 && i != switchesOffPositions.size() -1){
+              stringBuilder.append("showering barrel, ");
+          }
+          else if(switchesOffPositions.get(i) && i != switchesOffPositions.size()-2 && i == switchesOffPositions.size() -1){
+              stringBuilder.append("watering barrel, ");
+          }
+        }
         return stringBuilder.toString();
     }
 }

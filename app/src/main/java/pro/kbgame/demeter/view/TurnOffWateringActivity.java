@@ -1,6 +1,7 @@
 package pro.kbgame.demeter.view;
 
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,7 +9,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
@@ -86,10 +92,16 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @BindView(R.id.swFillingWateringBarrel)
     SwitchCompat swFillingWateringBarrel;
 
+    @BindViews({R.id.swWateringFieldOne, R.id.swWateringFieldTwo, R.id.swWateringFieldThree, R.id.swWateringFieldFour, R.id.swWateringFieldFive, R.id.swWateringFieldSix, R.id.swFillingShowerBarrel, R.id.swFillingWateringBarrel})
+    List<SwitchCompat> switchCompatList;
+
     @SuppressWarnings("unused")
     @OnClick(R.id.btTurnOffWateringAll)
     public void btTurnOffWateringAllClick() {
-        checkAllSwitches(false);
+        //checkAllSwitches(true);
+        for(SwitchCompat switchCompat: switchCompatList){
+            switchCompat.setChecked(true);
+        }
     }
 
     @SuppressWarnings("unused")
@@ -101,8 +113,8 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        collectData();
-        CommandsTranslator.getInstance(this).turnWatering();
+        SparseBooleanArray switchesPositions =  collectData();
+        CommandsTranslator.getInstance(this).turnWatering(switchesPositions);
         finish();
     }
 
@@ -122,16 +134,16 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     }
 
 
-    private void checkAllSwitches(boolean state) {
-        swWateringFieldOne.setChecked(state);
-        swWateringFieldTwo.setChecked(state);
-        swWateringFieldThree.setChecked(state);
-        swWateringFieldFour.setChecked(state);
-        swWateringFieldFive.setChecked(state);
-        swWateringFieldSix.setChecked(state);
-        swFillingShowerBarrel.setChecked(state);
-        swFillingWateringBarrel.setChecked(state);
-    }
+//    private void checkAllSwitches(boolean state) {
+//        swWateringFieldOne.setChecked(state);
+//        swWateringFieldTwo.setChecked(state);
+//        swWateringFieldThree.setChecked(state);
+//        swWateringFieldFour.setChecked(state);
+//        swWateringFieldFive.setChecked(state);
+//        swWateringFieldSix.setChecked(state);
+//        swFillingShowerBarrel.setChecked(state);
+//        swFillingWateringBarrel.setChecked(state);
+//    }
 
     private void setNames() {
         tvWateringFieldOne.setText(String.valueOf(status.getWaterReceiverList().get(0).getName()));
@@ -197,7 +209,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     }
 
 
-    private void collectData() {
+    private SparseBooleanArray collectData() {
         status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());
         status.getWaterReceiverList().get(1).setWatering(swWateringFieldTwo.isChecked());
         status.getWaterReceiverList().get(2).setWatering(swWateringFieldThree.isChecked());
@@ -206,5 +218,11 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         status.getWaterReceiverList().get(5).setWatering(swWateringFieldSix.isChecked());
         status.getBarrelList().get(0).setFilling(swFillingShowerBarrel.isChecked());
         status.getBarrelList().get(1).setFilling(swFillingWateringBarrel.isChecked());
+
+        SparseBooleanArray switchesPositions = new SparseBooleanArray();
+        for (int i = 0; i < switchCompatList.size(); i++) {
+            switchesPositions.put(i, switchCompatList.get(i).isChecked());
+        }
+        return switchesPositions;
     }
 }

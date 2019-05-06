@@ -147,7 +147,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
             ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
         }
         if (status.getBarrelList().get(0).isFilling()) {
-            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_not_full);
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_filling);
         }
 
         if (status.getBarrelList().get(1).isFull()) {
@@ -156,7 +156,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
             ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_empty);
         }
         if (status.getBarrelList().get(1).isFilling()) {
-            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
+            ivFillingWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_filling);
         }
 
     }

@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
             ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
         }
         if (status.getBarrelList().get(0).isFilling()) {
-            ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_not_full);
+            ivShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_filling);
         }
 
         if (status.getBarrelList().get(1).isFull()) {
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
             ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_empty);
         }
         if (status.getBarrelList().get(1).isFilling()) {
-            ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_not_full);
+            ivWateringBarrel.setImageResource(R.drawable.ic_watering_barrel_filling);
         }
 
     }

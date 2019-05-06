@@ -58,7 +58,9 @@ public class CommandsTranslator {
 
 
     public void setStatusFromSms(String smsText) {
-        status = StatusKeeper.getInstance(context).getCurrentStatus();
+        //status = StatusKeeper.getInstance(context).getCurrentStatus();
+        status = new Status();
+        setDefaultReceiversNumbers();
         status.setDate(new Date());
         String statusInStrings[] = smsText.split(";");
         for (String string : statusInStrings
@@ -73,11 +75,11 @@ public class CommandsTranslator {
                 status.setSoil(parseThirdIntValue(string));
             }
             if (string.startsWith("Showering barrel")) {
-                status.getBarrelList().get(0).setFull(isBarrelFull(string));
+                status.getBarrelList().get(0).setFull(!isBarrelEmpty(string));
                 status.getBarrelList().get(0).setFilling(isBarrelFilling(string));
             }
             if (string.startsWith("Watering barrel")) {
-                status.getBarrelList().get(1).setFull(isBarrelFull(string));
+                status.getBarrelList().get(1).setFull(!isBarrelEmpty(string));
                 status.getBarrelList().get(1).setFilling(isBarrelFilling(string));
             }
             if (string.startsWith("Watering off")) {
@@ -98,6 +100,7 @@ public class CommandsTranslator {
             }
 
         }
+        StatusKeeper.getInstance(context).setCurrentStatus(status);
     }
 
 
@@ -114,20 +117,12 @@ public class CommandsTranslator {
         return Integer.parseInt(stringToParse.substring(2));
     }
 
-    private boolean isBarrelFull(String checkingString) {
-        if (checkingString.contains("not full")) {
-            return false;
-        } else {
-            return true;
-        }
+    private boolean isBarrelEmpty(String checkingString) {
+        return  (checkingString.contains("empty"));
     }
 
     private boolean isBarrelFilling(String checkingString) {
-        if (checkingString.contains("filling")) {
-            return false;
-        } else {
-            return true;
-        }
+        return  (checkingString.contains("filling"));
     }
 
     private void wateringTurnedOnReceivers(int[] receiversNumbers) {
@@ -211,5 +206,14 @@ public class CommandsTranslator {
           }
         }
         return stringBuilder.toString();
+    }
+
+    private void setDefaultReceiversNumbers(){
+        int i = 1;
+        for (WaterReceiver waterReceiver: status.getWaterReceiverList()
+        ) {
+            waterReceiver.setSwitchNumber(i);
+            i++;
+        }
     }
 }

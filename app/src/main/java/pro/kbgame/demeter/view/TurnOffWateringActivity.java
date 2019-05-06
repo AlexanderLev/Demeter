@@ -9,9 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -133,18 +131,6 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         setDropsByStatus();
     }
 
-
-//    private void checkAllSwitches(boolean state) {
-//        swWateringFieldOne.setChecked(state);
-//        swWateringFieldTwo.setChecked(state);
-//        swWateringFieldThree.setChecked(state);
-//        swWateringFieldFour.setChecked(state);
-//        swWateringFieldFive.setChecked(state);
-//        swWateringFieldSix.setChecked(state);
-//        swFillingShowerBarrel.setChecked(state);
-//        swFillingWateringBarrel.setChecked(state);
-//    }
-
     private void setNames() {
         tvWateringFieldOne.setText(String.valueOf(status.getWaterReceiverList().get(0).getName()));
         tvWateringFieldTwo.setText(String.valueOf(status.getWaterReceiverList().get(1).getName()));
@@ -161,7 +147,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
             ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
         }
         if (status.getBarrelList().get(0).isFilling()) {
-            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel__not_full);
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_not_full);
         }
 
         if (status.getBarrelList().get(1).isFull()) {

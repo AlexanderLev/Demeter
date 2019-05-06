@@ -342,7 +342,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
             ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_empty);
         }
         if (status.getBarrelList().get(0).isFilling()) {
-            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel__not_full);
+            ivFillingShowerBarrel.setImageResource(R.drawable.ic_shower_barrel_not_full);
         }
 
         if (status.getBarrelList().get(1).isFull()) {

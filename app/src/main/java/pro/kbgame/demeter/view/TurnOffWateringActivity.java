@@ -125,7 +125,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        status = StatusKeeper.getInstance(this).getCurrentStatus();
+        status = StatusKeeper.getInstance().getCurrentStatus();
         setNames();
         setBarrelImageByStatus();
         setDropsByStatus();

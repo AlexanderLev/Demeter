@@ -100,7 +100,7 @@ public class CommandsTranslator {
             }
 
         }
-        StatusKeeper.getInstance(context).setCurrentStatus(status);
+        StatusKeeper.getInstance().setCurrentStatus(status);
     }
 
 
@@ -139,8 +139,8 @@ public class CommandsTranslator {
 
     private boolean isAnyWateringOn() {
         boolean watering = false;
-        List<Barrel> barrels = StatusKeeper.getInstance(context).statusCallBack().getBarrelList();
-        List<WaterReceiver> receivers = StatusKeeper.getInstance(context).statusCallBack().getWaterReceiverList();
+        List<Barrel> barrels = StatusKeeper.getInstance().statusCallBack().getBarrelList();
+        List<WaterReceiver> receivers = StatusKeeper.getInstance().statusCallBack().getWaterReceiverList();
         for (WaterReceiver receiver : receivers) {
             if (receiver.isWatering()) {
                 watering = true;
@@ -156,7 +156,7 @@ public class CommandsTranslator {
 
     private String parseObjectsToWatering() {
         StringBuilder stringBuilder = new StringBuilder();
-        Status statusToParse = StatusKeeper.getInstance(context).getCurrentStatus();
+        Status statusToParse = StatusKeeper.getInstance().getCurrentStatus();
         List<Barrel> barrels = statusToParse.getBarrelList();
         if (barrels.get(0).isFilling()) {
             String showerBarFillingOn = "shower barrel;";

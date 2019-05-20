@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.common.CommandsTranslator;
+import pro.kbgame.demeter.common.LoaderStatusCallbacks;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.model.WaterReceiver;
 import pro.kbgame.demeter.repository.StatusKeeper;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Status status;
     private BroadcastReceiver broadcastReceiver;
+    private static final int LOADER_ID = 1;
 
     @BindView(R.id.tvStatus)
     TextView tvStatus;
@@ -139,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getSupportLoaderManager().initLoader(LOADER_ID, Bundle.EMPTY, new LoaderStatusCallbacks());
         initUi();
         registerReceiver();
     }
@@ -149,9 +152,15 @@ public class MainActivity extends AppCompatActivity {
         initUi();
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
+    }
+
 
     private void initUi() {
-        StatusKeeper statusKeeper = StatusKeeper.getInstance(this);
+        StatusKeeper statusKeeper = new StatusKeeper();
         registerCallBack(statusKeeper);
         status = statusCallBack.statusCallBack();
         tvDateOfStatus.setText(String.format(getResources().getString(R.string.main_activity_status_date), getTimeToDisplay()));

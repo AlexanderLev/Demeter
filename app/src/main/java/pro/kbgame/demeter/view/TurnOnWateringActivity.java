@@ -300,7 +300,7 @@ public class TurnOnWateringActivity extends AppCompatActivity {
     }
 
     private void initUi() {
-        status = StatusKeeper.getInstance(this).getCurrentStatus();
+        status = StatusKeeper.getInstance().getCurrentStatus();
         setNames();
         allTimersEnabled(false);
         allTimersSetZeroTime();

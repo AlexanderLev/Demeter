@@ -1,17 +1,23 @@
 package pro.kbgame.demeter.view;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.text.SimpleDateFormat;
 
@@ -28,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Status status;
     private BroadcastReceiver broadcastReceiver;
+    private int REQUEST_CODE_PERMISSION_SEND_SMS = 1;
 
     @BindView(R.id.tvStatus)
     TextView tvStatus;
@@ -116,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btGetStatus)
     public void btGetStatusClick() {
-        CommandsTranslator.getInstance(this).getCurrentStatus();
+        checkForPermissions();
     }
 
     @SuppressWarnings("unused")
@@ -255,6 +262,29 @@ public class MainActivity extends AppCompatActivity {
             waterReceiver.setSwitchNumber(i);
             i++;
         }
+    }
+
+    private void checkForPermissions(){
+        int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
+        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+            CommandsTranslator.getInstance(this).getCurrentStatus();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS},
+                    REQUEST_CODE_PERMISSION_SEND_SMS);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_PERMISSION_SEND_SMS && grantResults.length == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                CommandsTranslator.getInstance(this).getCurrentStatus();
+            }
+            else {
+                Toast.makeText(this, R.string.all_not_enough_permissions, Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     public interface StatusCallBack {

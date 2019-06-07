@@ -1,13 +1,19 @@
 package pro.kbgame.demeter.view;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.List;
 
@@ -23,6 +29,7 @@ import pro.kbgame.demeter.repository.StatusKeeper;
 public class TurnOffWateringActivity extends AppCompatActivity {
 
     private Status status;
+    private int REQUEST_CODE_PERMISSION_SEND_SMS = 1;
 
     @BindView(R.id.tvWateringFieldOne)
     TextView tvWateringFieldOne;
@@ -111,9 +118,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        SparseBooleanArray switchesPositions =  collectData();
-        CommandsTranslator.getInstance(this).turnWatering(switchesPositions);
-        finish();
+        checkForPermissions();
     }
 
     @Override
@@ -211,4 +216,35 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         }
         return switchesPositions;
     }
+
+    private void checkForPermissions(){
+        int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
+        if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
+            executeUserCommands();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS},
+                    REQUEST_CODE_PERMISSION_SEND_SMS);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_PERMISSION_SEND_SMS && grantResults.length == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                executeUserCommands();
+            }
+            else {
+                Toast.makeText(this, R.string.all_not_enough_permissions, Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private void executeUserCommands(){
+        SparseBooleanArray switchesPositions =  collectData();
+        CommandsTranslator.getInstance(this).turnWatering(switchesPositions);
+        finish();
+    }
+
+
 }

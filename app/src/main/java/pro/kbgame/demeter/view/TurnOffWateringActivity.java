@@ -1,6 +1,7 @@
 package pro.kbgame.demeter.view;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -24,6 +25,7 @@ import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.common.CommandsTranslator;
 import pro.kbgame.demeter.model.Status;
+import pro.kbgame.demeter.repository.PreferencesKeeper;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class TurnOffWateringActivity extends AppCompatActivity {
@@ -104,7 +106,7 @@ public class TurnOffWateringActivity extends AppCompatActivity {
     @OnClick(R.id.btTurnOffWateringAll)
     public void btTurnOffWateringAllClick() {
         //checkAllSwitches(true);
-        for(SwitchCompat switchCompat: switchCompatList){
+        for (SwitchCompat switchCompat : switchCompatList) {
             switchCompat.setChecked(true);
         }
     }
@@ -126,6 +128,14 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_turn_off_watering);
         ButterKnife.bind(this);
+        checkForSettingsData();
+        initUI();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkForSettingsData();
         initUI();
     }
 
@@ -217,12 +227,12 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         return switchesPositions;
     }
 
-    private void checkForPermissions(){
+    private void checkForPermissions() {
         int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
         if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
             executeUserCommands();
         } else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS},
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS},
                     REQUEST_CODE_PERMISSION_SEND_SMS);
         }
     }
@@ -232,19 +242,25 @@ public class TurnOffWateringActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_PERMISSION_SEND_SMS && grantResults.length == 1) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 executeUserCommands();
-            }
-            else {
+            } else {
                 Toast.makeText(this, R.string.all_not_enough_permissions, Toast.LENGTH_SHORT).show();
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    private void executeUserCommands(){
-        SparseBooleanArray switchesPositions =  collectData();
+    private void executeUserCommands() {
+        SparseBooleanArray switchesPositions = collectData();
         CommandsTranslator.getInstance(this).turnWatering(switchesPositions);
         finish();
     }
 
+    private void checkForSettingsData() {
+        if (!PreferencesKeeper.getInstance().isDataPresent()) {
+            Toast.makeText(this, R.string.all_please_fill_settings_data, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
+    }
 
 }

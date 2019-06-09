@@ -1,13 +1,13 @@
 package pro.kbgame.demeter.repository;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import pro.kbgame.demeter.common.ContextGetter;
 import pro.kbgame.demeter.model.Settings;
 
-public class PreferencesKeeper implements SettingsDataCheck{
+public class PreferencesKeeper{
 
     private final String FIELD_NAME_ONE = "fieldNameOne";
     private final String FIELD_NAME_TWO = "fieldNameTwo";
@@ -30,7 +30,8 @@ public class PreferencesKeeper implements SettingsDataCheck{
         return instance;
     }
 
-    public void saveSettingsToPrefs(Context context, Settings settings){
+    public void saveSettingsToPrefs(Settings settings){
+        Context context = ContextGetter.getContext();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(FIELD_NAME_ONE, settings.getFieldNameOne());
@@ -46,7 +47,8 @@ public class PreferencesKeeper implements SettingsDataCheck{
     }
 
 
-    public Settings loadSettingsFromPrefs(Context context){
+    public Settings loadSettingsFromPrefs(){
+        Context context = ContextGetter.getContext();
         Settings settings = new Settings();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         settings.setFieldNameOne(sharedPreferences.getString(FIELD_NAME_ONE, ""));
@@ -60,8 +62,9 @@ public class PreferencesKeeper implements SettingsDataCheck{
         return settings;
     }
 
-    @Override
-    public boolean dataPresent() {
-        return false;
+
+    public boolean isDataPresent() {
+        Settings settings = loadSettingsFromPrefs();
+        return (!settings.getReceivingPhoneNumber().isEmpty());
     }
 }

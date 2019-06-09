@@ -50,5 +50,6 @@
     <string name="watering_on_set_watering_time">Tap on clock image and set watering time</string>
 
     <string name="all_not_enough_permissions">Not enough permissions</string>
+    <string name="all_please_fill_settings_data">Please, fill settings data</string>
 
 </resources>

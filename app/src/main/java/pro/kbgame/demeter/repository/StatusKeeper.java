@@ -44,13 +44,13 @@ public class StatusKeeper implements MainActivity.StatusCallBack {
     }
 
     private void updateCurrentNamesInStatus() {
-        Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
+        Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs();
         NamesCombiner namesCombiner = new NamesCombiner(settings, currentStatus);
         currentStatus = namesCombiner.getCombinedNamesStatus();
     }
 
     private void initStatus() {
-        Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs(context);
+        Settings settings = PreferencesKeeper.getInstance().loadSettingsFromPrefs();
         NamesCombiner namesCombiner = new NamesCombiner(settings, new Status());
         currentStatus = namesCombiner.getCombinedNamesStatus();
 

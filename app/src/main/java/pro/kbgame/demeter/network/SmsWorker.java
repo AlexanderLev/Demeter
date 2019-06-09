@@ -12,7 +12,7 @@ public class SmsWorker {
     }
 
     public void sendSmsToReceiver(String message) {
-        String receivingPhoneNumber = "smsto:" + PreferencesKeeper.getInstance().loadSettingsFromPrefs(context).getReceivingPhoneNumber();
+        String receivingPhoneNumber = "smsto:" + PreferencesKeeper.getInstance().loadSettingsFromPrefs().getReceivingPhoneNumber();
         android.telephony.SmsManager.getDefault().sendTextMessage(receivingPhoneNumber, null, message, null, null);
     }
 

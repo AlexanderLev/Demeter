@@ -24,7 +24,7 @@ public class SmsMonitor extends BroadcastReceiver {
 
 
             String sms_from = messages[0].getDisplayOriginatingAddress();
-            if (sms_from.equalsIgnoreCase(PreferencesKeeper.getInstance().loadSettingsFromPrefs(context).getReceivingPhoneNumber())) {
+            if (sms_from.equalsIgnoreCase(PreferencesKeeper.getInstance().loadSettingsFromPrefs().getReceivingPhoneNumber())) {
                 StringBuilder bodyText = new StringBuilder();
                 for (int i = 0; i < messages.length; i++) {
                     bodyText.append(messages[i].getMessageBody());

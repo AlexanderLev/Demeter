@@ -28,6 +28,7 @@ import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.common.CommandsTranslator;
 import pro.kbgame.demeter.model.Status;
 import pro.kbgame.demeter.model.WaterReceiver;
+import pro.kbgame.demeter.repository.PreferencesKeeper;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class MainActivity extends AppCompatActivity {
@@ -146,14 +147,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        checkForSettingsData();
         initUi();
         registerReceiver();
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
+        checkForSettingsData();
         initUi();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_PERMISSION_SEND_SMS && grantResults.length == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                CommandsTranslator.getInstance(this).getCurrentStatus();
+            } else {
+                Toast.makeText(this, R.string.all_not_enough_permissions, Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public interface StatusCallBack {
+        Status statusCallBack();
     }
 
 
@@ -171,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         setBarrelImageByStatus();
     }
 
-    private void registerReceiver(){
+    private void registerReceiver() {
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -250,45 +269,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String getTimeToDisplay(){
+    private String getTimeToDisplay() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         return simpleDateFormat.format(status.getDate());
     }
 
-    private void setWaterReceiversNumbers(){
+    private void setWaterReceiversNumbers() {
         int i = 1;
-        for (WaterReceiver waterReceiver: status.getWaterReceiverList()
-             ) {
+        for (WaterReceiver waterReceiver : status.getWaterReceiverList()
+        ) {
             waterReceiver.setSwitchNumber(i);
             i++;
         }
     }
 
-    private void checkForPermissions(){
+    private void checkForPermissions() {
         int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
         if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
             CommandsTranslator.getInstance(this).getCurrentStatus();
         } else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS},
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS},
                     REQUEST_CODE_PERMISSION_SEND_SMS);
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_PERMISSION_SEND_SMS && grantResults.length == 1) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                CommandsTranslator.getInstance(this).getCurrentStatus();
-            }
-            else {
-                Toast.makeText(this, R.string.all_not_enough_permissions, Toast.LENGTH_SHORT).show();
-            }
+    private void checkForSettingsData() {
+        if (!PreferencesKeeper.getInstance().isDataPresent()) {
+            Toast.makeText(this, R.string.all_please_fill_settings_data, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-    public interface StatusCallBack {
-        Status statusCallBack();
-    }
-
 }

@@ -2,6 +2,7 @@ package pro.kbgame.demeter.view;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -29,6 +30,7 @@ import butterknife.OnClick;
 import pro.kbgame.demeter.R;
 import pro.kbgame.demeter.common.CommandsTranslator;
 import pro.kbgame.demeter.model.Status;
+import pro.kbgame.demeter.repository.PreferencesKeeper;
 import pro.kbgame.demeter.repository.StatusKeeper;
 
 public class TurnOnWateringActivity extends AppCompatActivity {
@@ -274,6 +276,14 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_turn_on_watering);
         ButterKnife.bind(this);
+        checkForSettingsData();
+        initUi();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        checkForSettingsData();
         initUi();
     }
 
@@ -389,8 +399,6 @@ public class TurnOnWateringActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void collectData() {
         status.getWaterReceiverList().get(0).setWatering(swWateringFieldOne.isChecked());
         status.getWaterReceiverList().get(0).setTimeInMin(Integer.parseInt(tvWateringFieldOneTime.getText().toString()));
@@ -451,6 +459,14 @@ public class TurnOnWateringActivity extends AppCompatActivity {
             collectData();
             CommandsTranslator.getInstance(this).turnWatering();
             finish();
+        }
+    }
+
+    private void checkForSettingsData(){
+        if(!PreferencesKeeper.getInstance().isDataPresent()){
+            Toast.makeText(this, R.string.all_please_fill_settings_data, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         }
     }
 

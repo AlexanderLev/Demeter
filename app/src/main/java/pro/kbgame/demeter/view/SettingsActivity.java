@@ -56,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.btSave)
     public void btSaveClick() {
-        PreferencesKeeper.getInstance().saveSettingsToPrefs(this, collectDataToSave());
+        PreferencesKeeper.getInstance().saveSettingsToPrefs(collectDataToSave());
         Toast.makeText(this, R.string.all_saved, Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -88,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
     };
 
     private Settings loadSettingsData(){
-        return PreferencesKeeper.getInstance().loadSettingsFromPrefs(this);
+        return PreferencesKeeper.getInstance().loadSettingsFromPrefs();
 
     }
 

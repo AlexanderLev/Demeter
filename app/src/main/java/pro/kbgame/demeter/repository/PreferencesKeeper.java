@@ -1,12 +1,14 @@
 package pro.kbgame.demeter.repository;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import pro.kbgame.demeter.model.Settings;
 
-public class PreferencesKeeper {
+public class PreferencesKeeper implements SettingsDataCheck{
+
     private final String FIELD_NAME_ONE = "fieldNameOne";
     private final String FIELD_NAME_TWO = "fieldNameTwo";
     private final String FIELD_NAME_THREE = "fieldNameThree";
@@ -56,5 +58,10 @@ public class PreferencesKeeper {
         settings.setReceivingPhoneNumber(sharedPreferences.getString(RECEIVING_PHONE_NUMBER,""));
         settings.setRemindAboutWatering(sharedPreferences.getBoolean(REMIND_ABOUT_WATERING, false));
         return settings;
+    }
+
+    @Override
+    public boolean dataPresent() {
+        return false;
     }
 }
